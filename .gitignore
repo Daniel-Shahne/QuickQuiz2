@@ -4,3 +4,6 @@
 *.meta
 *.v2
 *.v6.1
+*.config
+*.lock
+*.bin
