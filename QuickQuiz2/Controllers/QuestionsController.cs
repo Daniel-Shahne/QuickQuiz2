@@ -22,7 +22,7 @@ namespace QuickQuiz2.Controllers
         [HttpGet]
         public async Task<ActionResult<List<QuestionModel>?>> GetAll()
         {
-            var questions = await this.questionsRepo.GetAllQuestions();
+            var questions = await questionsRepo.GetAllQuestions();
 
             if (questions == null)
             {
@@ -34,6 +34,16 @@ namespace QuickQuiz2.Controllers
             }
         }
 
+        [HttpGet("{id}")]
+        public async Task<ActionResult<QuestionModel>> GetQuestionById(int id)
+        {
+            var question = await questionsRepo.GetQuestionById(id);
+            if (question == null)
+            {
+                return NotFound();
+            }
+            return Ok(question);
+        }
 
 
 
