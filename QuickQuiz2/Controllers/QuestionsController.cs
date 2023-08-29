@@ -22,6 +22,7 @@ namespace QuickQuiz2.Controllers
         [HttpGet]
         public async Task<ActionResult<List<QuestionModel>?>> GetAll()
         {
+            //questions
             var questions = await questionsRepo.GetAllQuestions();
 
             if (questions == null)
@@ -37,12 +38,25 @@ namespace QuickQuiz2.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<QuestionModel>> GetQuestionById(int id)
         {
+            //questions/1
             var question = await questionsRepo.GetQuestionById(id);
             if (question == null)
             {
-                return NotFound();
+                return NotFound($"Could not find question with {id}");
             }
             return Ok(question);
+        }
+
+        [HttpGet("random/{amount}")]
+        public async Task<ActionResult<List<QuestionModel>>> GetRandomQuestions(int amount)
+        {
+            //questions/random/2
+            var questions = await questionsRepo.GetAmountOfQuestions(amount);
+            if (questions == null)
+            {
+                return NotFound(); // Or return an appropriate error response
+            }
+            return Ok(questions);
         }
 
 
