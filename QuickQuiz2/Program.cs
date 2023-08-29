@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using QuickQuiz2.Data;
+using QuickQuiz2.Repos.QuestionsRepo;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,7 @@ builder.Services.AddControllersWithViews();
 
 string? connectionString = builder.Configuration.GetConnectionString("QQDbConnection");
 builder.Services.AddDbContext<QuickQuizDbContext>(options => options.UseSqlServer(connectionString));
+builder.Services.AddScoped<IQuestionsRepo, QuestionsRepo>();
 
 var app = builder.Build();
 
