@@ -37,6 +37,12 @@ namespace BackendTesterXUnit
             this.output = output;
         }
 
+        /// <summary>
+        /// Tests if the GetAll action method of the QuestionsController
+        /// web api successfully responds (i.e status code 200) and if
+        /// it contains a List<QuestionModel>, printing out the name
+        /// of the first result.
+        /// </summary>
         [Fact]
         public async void GetAllQuestions_SuccessfullyFetched()
         {
