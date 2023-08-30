@@ -8,7 +8,7 @@ using QuickQuiz2.Repos.QuestionsRepo;
 namespace QuickQuiz2.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     
     public class QuestionsController : ControllerBase
     {
