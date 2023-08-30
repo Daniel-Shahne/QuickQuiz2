@@ -1,8 +1,0 @@
-{
-"SpaProxyServer": {
-"ServerUrl": "https://localhost:44426",
-"LaunchCommand": "npm start",
-"WorkingDirectory": "C:\\Users\\daani\\Documents\\Newton YH\\Ämnesövergripande projekt\\QuickQuiz2\\QuickQuiz2\\ClientApp\\",
-"MaxTimeoutInSeconds": "120"
-}
-}
