@@ -24,6 +24,10 @@ namespace QuickQuiz2.Data
             modelBuilder.Entity<QuestionModel>().HasData(SeedingData.AnimalQuestions);
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder ob)
+        {
+            ob.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=QuickQuizDb;Trusted_Connection=True;");
+        }
     }
 
 }
