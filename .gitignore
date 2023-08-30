@@ -8,4 +8,5 @@
 *.lock
 *.bin
 
+vs/
 .vs/
