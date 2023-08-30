@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using QuickQuiz2.Data;
 
@@ -10,9 +11,11 @@ using QuickQuiz2.Data;
 namespace QuickQuiz2.Migrations
 {
     [DbContext(typeof(QuickQuizDbContext))]
-    partial class QuickQuizDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230830091942_UpdateSeedingdata2")]
+    partial class UpdateSeedingdata2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

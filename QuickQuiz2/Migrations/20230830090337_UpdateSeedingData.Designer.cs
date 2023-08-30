@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using QuickQuiz2.Data;
 
@@ -10,9 +11,11 @@ using QuickQuiz2.Data;
 namespace QuickQuiz2.Migrations
 {
     [DbContext(typeof(QuickQuizDbContext))]
-    partial class QuickQuizDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230830090337_UpdateSeedingData")]
+    partial class UpdateSeedingData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -403,7 +406,7 @@ namespace QuickQuiz2.Migrations
                             Category = "Animals",
                             Description = "Enter the enchanting world of hummingbirds, the tiny wonders of the sky! These remarkable birds can be found in the Americas, from North to South, in various habitats such as forests, gardens, and even high mountains. Hummingbirds are known for their dazzling colors, swift movements, and their ability to hover in mid-air. With their iridescent feathers, they appear like tiny flying jewels. Hummingbirds have incredibly fast wingbeats, sometimes reaching up to 80 beats per second! Their specialized long, slender bills are perfect for sipping nectar from flowers, which is their main source of food. They're also skilled acrobats, performing aerial displays and even flying upside down. With their vibrant beauty and astonishing feats, hummingbirds are a true spectacle of the natural world.",
                             HardDiffDesc = "'m a vibrant flyer from the Americas, soaring through forests, gardens, and mountains. My dazzling colors and swift mid-air hover are like tiny jewels in the sky. With my specialized slender bill, I sip nectar from flowers, and my acrobatics and upside-down flights are truly remarkable. Who am I?",
-                            ImagePath = "hummingbird.png"
+                            ImagePath = "albatross.png"
                         },
                         new
                         {

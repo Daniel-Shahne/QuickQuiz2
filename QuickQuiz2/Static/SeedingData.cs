@@ -96,7 +96,7 @@ namespace QuickQuiz2.Static
                 Id = 6,
                 Category = "Animals",
                 Answer = "Alpaca",
-                ImagePath = "Alpaca.png",
+                ImagePath = "alpaca.png",
                 Description = "Say hello to the adorable alpacas! These fluffy creatures call the high mountains of South America their home, where the air is cool and the landscapes are stunning. Alpacas are known for their super soft wool, which is used to make cozy clothes. They're like smaller cousins of llamas, but with even softer fur. Alpacas are gentle and friendly, often living in herds and looking out for each other. They communicate using humming sounds and gentle nudges. These herbivores munch on grass and plants all day long, and their big eyes and perky ears make them extra cute. Whether for their wool or their friendship, alpacas are truly special animals!",
                 HardDiffDesc = "I'm a fluffy friend from the high mountains of South America! My super soft wool is used to make cozy clothes, and my big eyes and perky ears make me extra cute. I'm like a smaller cousin of llamas, and I munch on plants all day long. Who am I?"
             },
@@ -105,7 +105,7 @@ namespace QuickQuiz2.Static
                 Id = 7,
                 Category = "Animals",
                 Answer = "Meerkat",
-                ImagePath = "Meerkat.png",
+                ImagePath = "meerkat.png",
                 Description = "Meet the curious meerkats, small mammals that live in the dry deserts of Africa. These adorable creatures are known for their alertness and teamwork. Meerkats live in groups called 'clans' and they work together to keep each other safe. They take turns watching for predators, like eagles and snakes, while others search for food. With their sharp eyes and long tails, they're great at balancing and standing on their hind legs to get a better view of their surroundings. Meerkats are social animals and they love to play and groom each other. If you ever spot them, you'll be sure to see their playful and vigilant nature on full display.",
                 HardDiffDesc = "I'm a fluffy friend from the high mountains of South America! My super soft wool is used to make cozy clothes, and my big eyes and perky ears make me extra cute. I'm like a smaller cousin of llamas, and I munch on plants all day long. Who am I?"
             },
@@ -114,7 +114,7 @@ namespace QuickQuiz2.Static
                 Id = 8,
                 Category = "Animals",
                 Answer = "Panda",
-                ImagePath = "Panda.png",
+                ImagePath = "panda.png",
                 Description = "Say hello to the cuddly giant pandas! These adorable creatures are native to China, where they live in the cool bamboo forests. Pandas are famous for their black and white fur, which helps them blend in among the trees. They're mostly herbivores and their favorite food is bamboo shoots. Pandas have a special thumb-like wrist bone that helps them hold onto bamboo stems while they eat. They're not big fans of moving fast, so they spend a lot of time eating and relaxing. These gentle giants are skilled climbers and good swimmers too! With their round faces and fluffy bodies, pandas are some of the most lovable animals on the planet.",
                 HardDiffDesc = "I'm native to China, living in bamboo forests and known for my black and white fur. I love munching on bamboo shoots, have a special wrist bone to help me eat, and while I enjoy climbing trees, I also prefer to relax. Who am I?"
             },
@@ -122,7 +122,7 @@ namespace QuickQuiz2.Static
                 Id = 9,
                 Category = "Animals",
                 Answer = "Fennec Fox",
-                ImagePath = "FennecFox.png",
+                ImagePath = "fennecfox.png",
                 Description = "Meet the adorable fennec foxes, tiny creatures with big ears! These cute foxes make their home in the sandy deserts of North Africa. Fennecs have the largest ears relative to their body size of any fox, which help them hear sounds from far away and stay cool in the hot desert. They're also known for their soft, sandy-colored fur and large eyes. Fennec foxes are great diggers, creating burrows to escape the heat and predators. Despite their small size, they're quick and clever hunters, catching insects and small animals. With their charming looks and desert adaptations, fennec foxes are a true wonder of the wild!",
                 HardDiffDesc = "I have large ears relative to my size, live in the sandy deserts of North Africa, and am known for my soft, sandy-colored fur. I dig burrows to hide from the sun and am a clever hunter despite my small size. Who am I?",
             },
@@ -130,7 +130,7 @@ namespace QuickQuiz2.Static
                 Id = 10,
                 Category = "Animals",
                 Answer = "Sea Otter",
-                ImagePath = "SeaOtter.png",
+                ImagePath = "seaotter.png",
                 Description = "Dive into the world of sea otters, the playful ocean adventurers! These amazing animals live in the chilly waters of the Pacific Ocean. Sea otters have thick fur that keeps them warm, but they also use tools like rocks to crack open shellfish for a tasty meal. They're the only marine mammals known to use tools! Sea otters are known for their love of play, often seen floating on their backs, grooming their fur, and even holding hands with each other to stay together in groups called rafts. They're expert swimmers and divers, with webbed feet and waterproof fur. These furry friends are a joy to watch as they glide and frolic in the waves.",
                 HardDiffDesc = "I live in the chilly waters of the Pacific Ocean, have thick fur to keep me warm, and am known for using tools like rocks to eat. I float on my back, sometimes holding hands with my peers in groups called rafts, and am an expert swimmer. Who am I?",
             },
@@ -138,7 +138,7 @@ namespace QuickQuiz2.Static
                 Id = 11,
                 Category = "Animals",
                 Answer = "Sea Horse",
-                ImagePath = "SeaHorse.png",
+                ImagePath = "seahorse.png",
                 Description = "Dive into the magical world of seahorses! These enchanting creatures live in the ocean waters around the globe, from warm tropical seas to cooler oceans. Seahorses are known for their unique appearance, with their horse-like heads, curly tails, and intricate patterns. They're not strong swimmers like other fish; instead, they use their tails to anchor themselves to objects like coral and seagrass. Seahorses are also quite the doting dads – it's the males who carry the eggs in a special pouch until they hatch! These small creatures have big personalities and are excellent camouflagers, blending in with their surroundings to stay safe. Watching seahorses glide through the water is like witnessing a beautiful underwater dance!",
                 HardDiffDesc = "I live in oceans around the world, have a horse-like head, curly tail, and am known for my intricate patterns. Unlike other fish, I anchor myself using my tail, and uniquely, the males of my kind carry the eggs in a pouch. Who am I?"
             },
@@ -146,7 +146,7 @@ namespace QuickQuiz2.Static
                 Id = 12,
                 Category = "Animals",
                 Answer = "Rattlesnake",
-                ImagePath = "Rattlesnake.png",
+                ImagePath = "rattlesnake.png",
                 Description = "Meet the intriguing rattlesnakes, slithering inhabitants of North and South America! These reptiles are known for their distinct rattles at the end of their tails, which they shake to warn other animals when they're feeling threatened. Rattlesnakes live in various environments, from deserts to forests. They use their excellent senses, including heat-sensing pits on their faces, to locate their prey. Rattlesnakes are carnivores, eating small mammals, birds, and even other snakes. Despite their reputation, rattlesnakes play a crucial role in maintaining the balance of their ecosystems. Remember, if you encounter one in the wild, give it plenty of space to move along and do its important work.",
                 HardDiffDesc = "I slither across North and South America, have a distinctive rattle at the end of my tail, and possess heat-sensing pits on my face to find my prey. I can live in both deserts and forests, and play a vital role in my ecosystem. Who am I?",
             },
@@ -446,7 +446,7 @@ namespace QuickQuiz2.Static
                 Id = 39,
                 Answer = "Hummingbird",
                 Category = "Animals",
-                ImagePath = "albatross.png",
+                ImagePath = "hummingbird.png",
                 Description = "Enter the enchanting world of hummingbirds, the tiny wonders of the sky!" +
                 " These remarkable birds can be found in the Americas, from North to South, in various habitats such as forests, gardens, and even high mountains." +
                 " Hummingbirds are known for their dazzling colors, swift movements, and their ability to hover in mid-air." +
