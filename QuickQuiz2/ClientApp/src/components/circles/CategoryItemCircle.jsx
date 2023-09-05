@@ -1,7 +1,8 @@
 import React from "react";
 import circleStyle from "./circle.module.css";
+import {Link} from 'react-router-dom';
 
-function CategoryItemCircle({ imagePath, width, isClickable }) {
+function CategoryItemCircle({ question, width, isClickable }) {
   let className = "";
   if (isClickable) {
     className = circleStyle.circleContainerIsClickable;
@@ -10,12 +11,24 @@ function CategoryItemCircle({ imagePath, width, isClickable }) {
   }
   return (
     <div>
-      <img
-        src={`/images/animals/${imagePath}`}
-        alt=""
-        className={className}
-        style={{ width: `${width}` }}
-      />
+      <Link className={circleStyle.linkContainer} to='/counter'>
+        
+
+                
+        <h1>
+          {question.answer}
+        </h1>
+
+
+        <img
+          src={`/images/animals/${question.imagePath}`}
+          alt=""
+          className={className}
+          style={{ width: `${width}` }}
+        />
+
+      </Link>
+      
     </div>
   );
 }

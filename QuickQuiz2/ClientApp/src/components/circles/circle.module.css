@@ -1,10 +1,12 @@
 .circleContainer {
+  position: relative;
   border: 7px solid black;
   border-radius: 50%;
   /* max-width: 400px; */
 }
 
 .circleContainerIsClickable {
+  position: relative;
   border: 7px solid black;
   border-radius: 50%;
 }
@@ -12,3 +14,26 @@
 .circleContainerIsClickable:hover {
   opacity: 0.5;
 }
+
+h1 {
+  text-shadow: white 1px 0 10px;
+  position: absolute;
+  text-align: center;
+  align-self: center;
+  color: black;
+  opacity: 1 !important;
+}
+
+
+a {
+  text-decoration: none;
+}
+
+.linkContainer {
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+  position: absolute;
+}
+
+

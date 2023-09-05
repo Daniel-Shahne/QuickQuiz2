@@ -24,22 +24,27 @@ function App() {
 
   return (
     <div>
-      <CategoryItemCircle
-        imagePath={"crocodile.png"}
-        width={"400px"}
+      
+
+        {question ? (
+          <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+
+        <CategoryItemCircle
+        question={question}
+        width={"200px"}
         isClickable={true}
-      />
-      {/* {question ? (
-        <img
-          src={`/images/animals/${question.imagePath}`}
-          alt=""
-          className="item-image"
-        />
+    />
+
+    <CategoryItemCircle
+        question={question}
+        width={"200px"}
+        isClickable={true}
+    />
+    </div>
       ) : (
         0
       )}
 
-      <h2>Hej Jerry, är detta ok?</h2> */}
     </div>
   );
 }
