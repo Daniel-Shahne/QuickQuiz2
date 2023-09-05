@@ -5,7 +5,12 @@ import { Layout } from './components/Layout';
 import './custom.css';
 import { apiHelper } from './services/ApiHelper';
 
+// Wonky Shapes import
+import WonkyShapeText1 from './components/WonkyShapes/WonkyTexts/shapesForWonkyTexts/WonkyShapeText1';
+import WonkyShapeText2 from './components/WonkyShapes/WonkyTexts/shapesForWonkyTexts/WonkyShapeText2';
 
+// Wonky text container import
+import WonkyContainerText from './components/WonkyShapes/WonkyTexts/WonkyContainerText/WonkyContainerText';
 
 function App() {
   const [question, setQuestion] = useState(null)
@@ -25,10 +30,13 @@ function App() {
 
   return ( 
     <div>
-      {question ? <img src={`/images/animals/${question.imagePath}`} alt="" className="item-image" /> : 0}
-      
       <h2>Hej Jerry, är detta ok?</h2>
-
+      <WonkyShapeText1 shapeFill="#853AC8"/>
+      <WonkyShapeText1 shapeFill="#00AC87"/>
+      <WonkyShapeText2 shapeFill="#853AC8"/>
+      <WonkyShapeText2 shapeFill="#00AC87"/>
+      <br/>
+      <WonkyContainerText shapeId="1" text="alhamdillulah" shapeFill="#00AC87"/>
   </div> );
 }
 
