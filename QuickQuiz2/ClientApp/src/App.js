@@ -25,7 +25,7 @@ function App() {
 
   return ( 
     <div>
-      {question ? <img src={`/images/${question.imagePath}`} alt="" className="item-image" /> : 0}
+      {question ? <img src={`/images/animals/${question.imagePath}`} alt="" className="item-image" /> : 0}
       
       <h2>Hej Jerry, är detta ok?</h2>
 
