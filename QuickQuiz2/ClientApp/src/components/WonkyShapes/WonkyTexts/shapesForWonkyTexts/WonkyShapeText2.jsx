@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 
-function WonkyShapeText2({ shapeFill }) {
+function WonkyShapeText2({ shapeFill, sizeMultiplier }) {
+  let sizeMultiplierNum = parseFloat(sizeMultiplier);
+
+  const [calculatedWidth, setCalculatedWidth] = useState(
+    101 * sizeMultiplierNum
+  );
+  const [calculatedHeight, setCalculatedHeight] = useState(
+    57 * sizeMultiplierNum
+  );
+
   return (
     <span>
       <svg
-        width="104"
-        height="46"
+        width={calculatedWidth}
+        height={calculatedHeight}
         viewBox="0 0 104 46"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
