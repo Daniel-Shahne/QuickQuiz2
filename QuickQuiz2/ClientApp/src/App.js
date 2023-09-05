@@ -33,10 +33,8 @@ function App() {
       <h2>Hej Jerry, är detta ok?</h2>
       <WonkyShapeText1 shapeFill="#853AC8"/>
       <WonkyShapeText1 shapeFill="#00AC87"/>
-      <WonkyShapeText2 shapeFill="#853AC8"/>
-      <WonkyShapeText2 shapeFill="#00AC87"/>
       <br/>
-      <WonkyContainerText shapeId="1" text="alhamdillulah" shapeFill="#00AC87"/>
+      <WonkyContainerText shapeId="1" text="alhamdillulah" shapeFill="#00AC87" sizeMultiplier="1.0"/>
   </div> );
 }
 
