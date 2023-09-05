@@ -2,7 +2,7 @@ import React from "react";
 
 function WonkyShapeText1({ shapeFill }) {
   return (
-    <div>
+    <span>
       <svg
         width="101"
         height="57"
@@ -56,7 +56,7 @@ function WonkyShapeText1({ shapeFill }) {
           </filter>
         </defs>
       </svg>
-    </div>
+    </span>
   );
 }
 

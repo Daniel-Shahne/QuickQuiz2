@@ -3,6 +3,8 @@ import React from "react";
 import WonkyShapeText1 from "../shapesForWonkyTexts/WonkyShapeText1";
 import WonkyShapeText2 from "../shapesForWonkyTexts/WonkyShapeText2";
 
+import wonkyCss from "./wonkycontainertext.module.css";
+
 function WonkyContainerText({ shapeId, text, shapeFill }) {
   let ShapeComponent;
   switch (shapeId) {
@@ -17,15 +19,14 @@ function WonkyContainerText({ shapeId, text, shapeFill }) {
   }
 
   return (
-    <div>
+    <span>
       {ShapeComponent && (
-        <div>
-          <ShapeComponent shapeFill={shapeFill}>
-            <p>{text}</p>
-          </ShapeComponent>
-        </div>
+        <span className={wonkyCss.wonkyContainerTextContainer}>
+          <p className={wonkyCss.wonkyContainerTextText}>{text}</p>
+          <ShapeComponent shapeFill={shapeFill} />
+        </span>
       )}
-    </div>
+    </span>
   );
 }
 
