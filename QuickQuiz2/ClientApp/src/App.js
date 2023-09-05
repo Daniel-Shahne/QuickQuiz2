@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import AppRoutes from './AppRoutes';
-import { Layout } from './components/Layout';
-import './custom.css';
-import { apiHelper } from './services/ApiHelper';
-
-
+import React, { useState, useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
+import AppRoutes from "./AppRoutes";
+import { Layout } from "./components/Layout";
+import "./custom.css";
+import { apiHelper } from "./services/ApiHelper";
+import CategoryItemCircle from "./components/circles/CategoryItemCircle";
 
 function App() {
-  const [question, setQuestion] = useState(null)
+  const [question, setQuestion] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,13 +22,26 @@ function App() {
     fetchData();
   }, []);
 
-  return ( 
+  return (
     <div>
-      {question ? <img src={`/images/animals/${question.imagePath}`} alt="" className="item-image" /> : 0}
-      
-      <h2>Hej Jerry, är detta ok?</h2>
+      <CategoryItemCircle
+        imagePath={"crocodile.png"}
+        width={"400px"}
+        isClickable={true}
+      />
+      {/* {question ? (
+        <img
+          src={`/images/animals/${question.imagePath}`}
+          alt=""
+          className="item-image"
+        />
+      ) : (
+        0
+      )}
 
-  </div> );
+      <h2>Hej Jerry, är detta ok?</h2> */}
+    </div>
+  );
 }
 
 export default App;
