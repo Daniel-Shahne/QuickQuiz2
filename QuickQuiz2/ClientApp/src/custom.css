@@ -1,4 +1,8 @@
 /* Provide sufficient contrast against white background */
+* {
+  font-family: "Comic Sans ms", sans-serif;
+}
+
 a {
   color: #0366d6;
 }

@@ -5,7 +5,13 @@ import WonkyShapeText2 from "../shapesForWonkyTexts/WonkyShapeText2";
 
 import wonkyCss from "./wonkycontainertext.module.css";
 
-function WonkyContainerText({ shapeId, text, shapeFill, sizeMultiplier }) {
+function WonkyContainerText({
+  shapeId,
+  text,
+  shapeFill,
+  sizeMultiplier,
+  fontSize,
+}) {
   let ShapeComponent;
   switch (shapeId) {
     case "1":
@@ -22,7 +28,12 @@ function WonkyContainerText({ shapeId, text, shapeFill, sizeMultiplier }) {
     <span>
       {ShapeComponent && (
         <span className={wonkyCss.wonkyContainerTextContainer}>
-          <p className={wonkyCss.wonkyContainerTextText}>{text}</p>
+          <p
+            className={wonkyCss.wonkyContainerTextText}
+            style={{ fontSize: fontSize }}
+          >
+            {text}
+          </p>
           <ShapeComponent
             shapeFill={shapeFill}
             sizeMultiplier={sizeMultiplier}

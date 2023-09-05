@@ -34,7 +34,8 @@ function App() {
       <WonkyShapeText1 shapeFill="#853AC8" sizeMultiplier="1.1"/>
       <WonkyShapeText2 shapeFill="#00AC87" sizeMultiplier="1.2"/>
       <br/>
-      <WonkyContainerText shapeId="1" text="alhamdillulah" shapeFill="#00AC87" sizeMultiplier="1.3"/>
+      <WonkyContainerText shapeId="1" text="Play" shapeFill="#00AC87" sizeMultiplier="1.5" fontSize="15px"/>
+      <WonkyContainerText shapeId="2" text="Learn" shapeFill="#00AC87" sizeMultiplier="1.5" fontSize="15px"/>
   </div> );
 }
 
