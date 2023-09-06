@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
-function WonkyShapeChar1(sizeMultiplier) {
+function WonkyShapeChar1({ sizeMultiplier }) {
   let sizeMultiplierNum = parseFloat(sizeMultiplier);
 
   const [calculatedWidth, setCalculatedWidth] = useState(
-    570 * sizeMultiplierNum
+    57 * sizeMultiplierNum
   );
   const [calculatedHeight, setCalculatedHeight] = useState(
-    460 * sizeMultiplierNum
+    46 * sizeMultiplierNum
   );
 
   return (
@@ -15,7 +15,7 @@ function WonkyShapeChar1(sizeMultiplier) {
       <svg
         width={calculatedWidth}
         height={calculatedHeight}
-        viewBox={`0 0 ${calculatedWidth} ${calculatedHeight}`}
+        viewBox={`0 0 57 46`}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >

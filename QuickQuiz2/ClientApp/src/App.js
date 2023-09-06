@@ -36,12 +36,12 @@ function App() {
       <WonkyShapeText1 shapeFill="#853AC8" sizeMultiplier="1.1"/>
       <WonkyShapeText2 shapeFill="#00AC87" sizeMultiplier="1.2"/>
       <br/>
-      <WonkyShapeChar1 sizeMultiplier="4.0"/>
-      <br/>
       <WonkyContainerText shapeId="1" text="Play" shapeFill="#00AC87" sizeMultiplier="1.5" fontSize="15px"/>
       <WonkyContainerText shapeId="2" text="Learn" shapeFill="#00AC87" sizeMultiplier="1.5" fontSize="15px"/>
       <br/>
       <WonkyImageSvg1 sizeMultiplier="1.0" rotateDegree="0"/>
+      <br/>
+      <WonkyShapeChar1 sizeMultiplier="1.0"/>
   </div> );
 }
 
