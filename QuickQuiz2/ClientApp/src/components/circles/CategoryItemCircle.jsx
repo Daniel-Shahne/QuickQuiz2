@@ -3,7 +3,7 @@ import circleStyle from "./circle.module.css";
 import {Link} from 'react-router-dom';
 import { useState } from "react";
 
-function CategoryItemCircle({ question, width, isClickable }) {
+function CategoryItemCircle({ question, width, isClickable, onClickUrl = ''}) {
 
   const [isHovered, setIsHovered] = useState(false);
 
@@ -19,7 +19,7 @@ function CategoryItemCircle({ question, width, isClickable }) {
     return (
 
       <div>
-        <Link className={circleStyle.linkContainer} to='/counter'>
+        <Link className={circleStyle.linkContainer} to={onClickUrl}>
           
   
           <img

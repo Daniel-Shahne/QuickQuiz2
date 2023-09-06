@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
-import AppRoutes from "./AppRoutes";
-import { Layout } from "./components/Layout";
-import "./custom.css";
-import { apiHelper } from "./services/ApiHelper";
-import CategoryItemCircle from "./components/circles/CategoryItemCircle";
+import React, { useState, useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import AppRoutes from './AppRoutes';
+import { Layout } from './components/Layout';
+import './custom.css';
+import { apiHelper } from './services/ApiHelper';
+
+
 
 function App() {
-  const [question, setQuestion] = useState(null);
+  const [question, setQuestion] = useState(null)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,25 +23,13 @@ function App() {
     fetchData();
   }, []);
 
-  return (
+  return ( 
     <div>
+      {question ? <img src={`/images/animals/${question.imagePath}`} alt="" className="item-image" /> : 0}
       
+      <h2>Hej Jerry, är detta ok?</h2>
 
-        {question ? (
-          <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-
-        <CategoryItemCircle
-        question={question}
-        width={"200px"}
-        isClickable={false}
-    />
-    </div>
-      ) : (
-        0
-      )}
-
-    </div>
-  );
+  </div> );
 }
 
 export default App;
