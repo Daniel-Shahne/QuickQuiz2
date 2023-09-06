@@ -5,7 +5,7 @@ import { Layout } from './components/Layout';
 import './custom.css';
 import { apiHelper } from './services/ApiHelper';
 
-
+import WonkyContainerImage from './components/WonkyShapes/WonkyImages/WonkyContainerImage/WonkyContainerImage';
 
 function App() {
   const [question, setQuestion] = useState(null)
@@ -24,11 +24,10 @@ function App() {
   }, []);
 
   return ( 
-    <div>
-      {question ? <img src={`/images/animals/${question.imagePath}`} alt="" className="item-image" /> : 0}
-      
+    <div>      
       <h2>Hej Jerry, är detta ok?</h2>
 
+      <WonkyContainerImage svgSizeMultiplier="2.0" svgRotateDegree="0" imageSizeMultiplier="0.6"/>
   </div> );
 }
 
