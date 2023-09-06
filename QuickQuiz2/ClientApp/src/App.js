@@ -32,13 +32,7 @@ function App() {
         <CategoryItemCircle
         question={question}
         width={"200px"}
-        isClickable={true}
-    />
-
-    <CategoryItemCircle
-        question={question}
-        width={"200px"}
-        isClickable={true}
+        isClickable={false}
     />
     </div>
       ) : (
