@@ -1,27 +1,29 @@
 import React from "react";
 import circleStyle from "./circle.module.css";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
-function CategoryItemCircle({ question, width, isClickable, onClickUrl = ''}) {
-
+function CategoryItemCircle({
+  question,
+  width,
+  isClickable,
+  onClickUrl = "",
+  classForSvgMod = null,
+}) {
   const [isHovered, setIsHovered] = useState(false);
 
   function handleMouseEnter() {
-    setIsHovered(true)
+    setIsHovered(true);
   }
 
   function handleMouseLeave() {
-    setIsHovered(false)
+    setIsHovered(false);
   }
 
   if (isClickable) {
     return (
-
-      <div>
+      <span>
         <Link className={circleStyle.linkContainer} to={onClickUrl}>
-          
-  
           <img
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
@@ -30,32 +32,27 @@ function CategoryItemCircle({ question, width, isClickable, onClickUrl = ''}) {
             className={circleStyle.circleContainerIsClickable}
             style={{ width: `${width}` }}
           />
-  
-            {isHovered && (
-            <h1 onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}>
+
+          {isHovered && (
+            <h1 onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
               {question.answer}
             </h1>
-            )}
-  
+          )}
         </Link>
-        
-      </div>
+      </span>
     );
-  }
-  else {
+  } else {
     return (
-      <div>
+      <span className={classForSvgMod}>
         <img
-            src={`/images/animals/${question.imagePath}`}
-            alt=""
-            className={circleStyle.circleContainer}
-            style={{ width: `${width}` }}
-          />
-      </div>
+          src={`/images/animals/${question.imagePath}`}
+          alt=""
+          className={circleStyle.circleContainer}
+          style={{ width: `${width}` }}
+        />
+      </span>
     );
   }
-
 }
 
 export default CategoryItemCircle;
