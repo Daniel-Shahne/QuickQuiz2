@@ -1,0 +1,23 @@
+body {
+    height: 100%;
+}
+
+body {
+    background-image: url('./gradient1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1 {
+    text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 2px 0 white, -3px -3px 0 white, 3px -3px 0 white, -3px 3px 0 white, 3px 3px 0 white;
+    font-size: 60px;
+    color: #00AC87;
+    margin-bottom: 6rem;
+}
+
+.container {
+    margin-top: 6rem;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
