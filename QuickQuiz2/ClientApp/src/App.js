@@ -11,7 +11,6 @@ import WonkyShapeText2 from './components/WonkyShapes/WonkyTexts/shapesForWonkyT
 
 // Wonky text container import
 import WonkyContainerText from './components/WonkyShapes/WonkyTexts/WonkyContainerText/WonkyContainerText';
-import WonkyImageSvg1 from './components/WonkyShapes/WonkyImages/ShapeForWonkyImgs/WonkyImageSvg1';
 
 function App() {
   const [question, setQuestion] = useState(null)
@@ -31,13 +30,10 @@ function App() {
 
   return ( 
     <div>
-      <h2>Freepic.com</h2>
+      <h2>Hej Jerry, är detta ok?</h2>
       <WonkyShapeText1 shapeFill="#853AC8" sizeMultiplier="1.1"/>
       <WonkyShapeText2 shapeFill="#00AC87" sizeMultiplier="1.2"/>
       <br/>
-      <span>
-        <WonkyImageSvg1 sizeMultiplier="3" rotateDegree={45}/>
-      </span>
       <WonkyContainerText shapeId="1" text="Play" shapeFill="#00AC87" sizeMultiplier="1.5" fontSize="15px"/>
       <WonkyContainerText shapeId="2" text="Learn" shapeFill="#00AC87" sizeMultiplier="1.5" fontSize="15px"/>
   </div> );
