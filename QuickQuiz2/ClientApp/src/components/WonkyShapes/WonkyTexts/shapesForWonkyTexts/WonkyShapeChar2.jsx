@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
-function WonkyShapeChar1({ shapeFill, sizeMultiplier }) {
+function WonkyShapeChar2({ shapeFill, sizeMultiplier }) {
   let sizeMultiplierNum = parseFloat(sizeMultiplier);
 
   const [calculatedWidth, setCalculatedWidth] = useState(
-    57 * sizeMultiplierNum
+    48 * sizeMultiplierNum
   );
   const [calculatedHeight, setCalculatedHeight] = useState(
-    46 * sizeMultiplierNum
+    55 * sizeMultiplierNum
   );
 
   return (
@@ -15,25 +15,21 @@ function WonkyShapeChar1({ shapeFill, sizeMultiplier }) {
       <svg
         width={calculatedWidth}
         height={calculatedHeight}
-        viewBox={`0 0 57 46`}
+        viewBox="0 0 48 55"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g filter="url(#filter0_d_79_175)">
-          <path d="M51 2L7.22283 9L6 25L48.5543 36L51 2Z" fill={shapeFill} />
-          <path
-            d="M51 2L7.22283 9L6 25L48.5543 36L51 2Z"
-            stroke="#F5F5F5"
-            stroke-width="2"
-          />
+        <g filter="url(#filter0_d_159_57)">
+          <path d="M43 1L5 15.3407V46L43 21.2747V1Z" fill={shapeFill} />
+          <path d="M43 1L5 15.3407V46L43 21.2747V1Z" stroke="#F5F5F5" />
         </g>
         <defs>
           <filter
-            id="filter0_d_79_175"
-            x="0.939117"
-            y="0.813232"
-            width="55.1488"
-            height="44.4553"
+            id="filter0_d_159_57"
+            x="0.5"
+            y="0.276855"
+            width="47"
+            height="54.645"
             filterUnits="userSpaceOnUse"
             color-interpolation-filters="sRGB"
           >
@@ -54,12 +50,12 @@ function WonkyShapeChar1({ shapeFill, sizeMultiplier }) {
             <feBlend
               mode="normal"
               in2="BackgroundImageFix"
-              result="effect1_dropShadow_79_175"
+              result="effect1_dropShadow_159_57"
             />
             <feBlend
               mode="normal"
               in="SourceGraphic"
-              in2="effect1_dropShadow_79_175"
+              in2="effect1_dropShadow_159_57"
               result="shape"
             />
           </filter>
@@ -69,4 +65,4 @@ function WonkyShapeChar1({ shapeFill, sizeMultiplier }) {
   );
 }
 
-export default WonkyShapeChar1;
+export default WonkyShapeChar2;
