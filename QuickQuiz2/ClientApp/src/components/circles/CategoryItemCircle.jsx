@@ -3,13 +3,7 @@ import circleStyle from "./circle.module.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-function CategoryItemCircle({
-  question,
-  width,
-  isClickable,
-  onClickUrl = "",
-  classForSvgMod = null,
-}) {
+function CategoryItemCircle({ question, width, isClickable, onClickUrl = "" }) {
   const [isHovered, setIsHovered] = useState(false);
 
   function handleMouseEnter() {
@@ -43,7 +37,7 @@ function CategoryItemCircle({
     );
   } else {
     return (
-      <span className={classForSvgMod}>
+      <span>
         <img
           src={`/images/animals/${question.imagePath}`}
           alt=""

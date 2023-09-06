@@ -27,7 +27,7 @@ function App() {
     <div>      
       <h2>Hej Jerry, är detta ok?</h2>
 
-      <WonkyContainerImage sizeMultiplier="1.0" rotateDegree="0"/>
+      <WonkyContainerImage svgSizeMultiplier="2.0" svgRotateDegree="0" imageSizeMultiplier="0.6"/>
   </div> );
 }
 
