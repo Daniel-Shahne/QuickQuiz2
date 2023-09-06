@@ -1,34 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import AppRoutes from './AppRoutes';
-import { Layout } from './components/Layout';
-import './custom.css';
-import { apiHelper } from './services/ApiHelper';
-
-import WonkyContainerImage from './components/WonkyShapes/WonkyImages/WonkyContainerImage/WonkyContainerImage';
+import React, { useState, useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
+import "./custom.css";
+import { apiHelper } from "./services/ApiHelper";
+import { AppContextProvider } from "./context/AppContext";
+import HomePage from "./pages/Home/HomePage";
+import GamePage from "./pages/Game/GamePage";
+import HowToPlayPage from "./pages/HowToPlay/HowToPlayPage";
+import ResultsPage from "./pages/Results/ResultsPage";
+import SelectDifficultyPage from "./pages/SelectDifficulty/SelectDifficultyPage";
+import NotFoundPage from "./pages/NotFound/NotFoundPage";
 
 function App() {
-  const [question, setQuestion] = useState(null)
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const question = await apiHelper.getQuestionById(2);
-        console.log(question);
-        setQuestion(question);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
-  }, []);
-
-  return ( 
-    <div>      
-      <h2>Hej Jerry, är detta ok?</h2>
-
-      <WonkyContainerImage svgSizeMultiplier="2.0" svgRotateDegree="0" imageSizeMultiplier="0.6"/>
-  </div> );
+  return (
+    <div>
+      <AppContextProvider>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/selectdifficulty" element={<SelectDifficultyPage />} />
+          <Route path="/game" element={<GamePage />} />
+          <Route path="/howtoplay" element={<HowToPlayPage />} />
+          <Route path="/results" element={<ResultsPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </AppContextProvider>
+    </div>
+  );
 }
 
 export default App;
