@@ -14,6 +14,11 @@ function GamePage() {
   // Holds the index of the current answer
   const [activeAnswerIndex, setActiveAnswerIndex] = useState(0);
 
+  const [playerPoints, setPlayerPoints] = useState({
+    player1Points: 0,
+    player2Points: 0,
+  });
+
   /** Due to allQuestions being instantiated as null, the values of
    * the index variables can only be set after the data has been fetched
    */
@@ -108,10 +113,34 @@ function GamePage() {
     window.addEventListener("keydown", (event) => {
       if (event.key === "a" || event.key === "l") {
         // TODO: Write function that determines who gets points
+        determineWhoGetsPoints(event.key);
       }
     });
     return () => window.removeEventListener("keydown");
   }, []);
+
+  useEffect(() => {
+    console.log(playerPoints, activeAnswerIndex, activeQuestionIndex);
+  }, [playerPoints, activeAnswerIndex, activeQuestionIndex]);
+
+  function determineWhoGetsPoints(playerKey) {
+    // Determine if answer is correct.
+    const isAnswerCorrect = activeAnswerIndex === activeQuestionIndex;
+
+    if (isAnswerCorrect) {
+      switch (playerKey) {
+        case "a":
+          setPlayerPoints((prevState) => {
+            const newState = { ...prevState };
+            newState.player1Points += 1;
+            return newState;
+          });
+          break;
+      }
+    } else {
+      console.log("Bitch");
+    }
+  }
 
   return (
     <div>
@@ -121,7 +150,7 @@ function GamePage() {
             Current question is: {allQuestions[activeQuestionIndex].answer}
           </h1>
           <h1>
-            Current cycled anser is: {allQuestions[activeAnswerIndex].answer}
+            Current cycled answer is: {allQuestions[activeAnswerIndex].answer}
           </h1>
         </div>
       ) : null}
