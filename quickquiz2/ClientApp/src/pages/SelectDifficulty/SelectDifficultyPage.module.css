@@ -1,14 +1,13 @@
-body {
+.backgroundContainer {
     height: 100%;
-}
-
-body {
+    width: 100%;
+    position: fixed;
     background-image: url('./gradient1.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-h1 {
+.container > h1 {
     text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 2px 0 white, -3px -3px 0 white, 3px -3px 0 white, -3px 3px 0 white, 3px 3px 0 white;
     font-size: 60px;
     color: #00AC87;
@@ -16,6 +15,7 @@ h1 {
 }
 
 .container {
+    height: 100%;
     margin-top: 6rem;
     align-items: center;
     display: flex;
