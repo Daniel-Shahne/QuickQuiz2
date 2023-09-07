@@ -1,5 +1,5 @@
 // Logic imports
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 // Context import
 import { AppContext } from "../../context/AppContext";
 
@@ -13,11 +13,27 @@ function GamePage() {
   const [activeQuestionIndex, setActiveQuestionIndex] = useState(0);
   // Holds the index of the current answer
   const [activeAnswerIndex, setActiveAnswerIndex] = useState(0);
-
+  // Holds each players points
   const [playerPoints, setPlayerPoints] = useState({
     player1Points: 0,
     player2Points: 0,
   });
+
+  // Mutable reference for state variables
+  const stateRef = useRef({
+    activeQuestionIndex,
+    activeAnswerIndex,
+    playerPoints,
+  });
+
+  // Update the ref object whenever the state changes
+  useEffect(() => {
+    stateRef.current = {
+      activeQuestionIndex,
+      activeAnswerIndex,
+      playerPoints,
+    };
+  }, [activeQuestionIndex, activeAnswerIndex, playerPoints]);
 
   /** Due to allQuestions being instantiated as null, the values of
    * the index variables can only be set after the data has been fetched
@@ -31,7 +47,7 @@ function GamePage() {
         Math.floor(Math.random() * allQuestions.length)
       );
     }
-  }, allQuestions);
+  }, [allQuestions]);
 
   // Holds how many answers have cycled since the last correct one
   const [cycledAnswersSinceCorrect, setCycledAnswersSinceCorrect] = useState(0);
@@ -105,31 +121,20 @@ function GamePage() {
       // Clear the interval when the component unmounts
       return () => clearInterval(timer);
     }
-  }, [allQuestions, cycledAnswersSinceCorrect, randomCycleAmount]);
+  }, [
+    allQuestions,
+    cycledAnswersSinceCorrect,
+    randomCycleAmount,
+    activeQuestionIndex,
+  ]);
 
-  /** useEffect for adding javascript event listeners.
-   */
-  useEffect(() => {
-    window.addEventListener("keydown", (event) => {
-      if (event.key === "a" || event.key === "l") {
-        // TODO: Write function that determines who gets points
-        determineWhoGetsPoints(event.key);
-      }
-    });
-    return () => window.removeEventListener("keydown");
-  }, []);
-
-  useEffect(() => {
-    console.log(playerPoints, activeAnswerIndex, activeQuestionIndex);
-  }, [playerPoints, activeAnswerIndex, activeQuestionIndex]);
-
-  function determineWhoGetsPoints(playerKey) {
-    // Determine if answer is correct.
-    const isAnswerCorrect = activeAnswerIndex === activeQuestionIndex;
-
-    if (isAnswerCorrect) {
-      switch (playerKey) {
-        case "a":
+  function handleKeyPress(event) {
+    if (
+      stateRef.current.activeAnswerIndex ===
+      stateRef.current.activeQuestionIndex
+    ) {
+      switch (event.code) {
+        case "KeyA":
           setPlayerPoints((prevState) => {
             const newState = { ...prevState };
             newState.player1Points += 1;
@@ -137,10 +142,21 @@ function GamePage() {
           });
           break;
       }
-    } else {
-      console.log("Bitch");
     }
   }
+
+  // Add and remove the event listener using useEffect
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyPress);
+    return () => {
+      window.removeEventListener("keydown", handleKeyPress);
+    };
+  }, []);
+
+  // Only for debugging
+  useEffect(() => {
+    console.log(playerPoints);
+  }, [playerPoints]);
 
   return (
     <div>
