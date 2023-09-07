@@ -12,11 +12,16 @@
 }
 
 .howToPlayInnerContainer {
-  margin-top: 60px;
+  margin-top: 70px;
 }
 
 .howToPlayInnerContainer > h1 {
   text-align: center;
+  text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white,
+    2px 2px 0 white, -3px -3px 0 white, 3px -3px 0 white, -3px 3px 0 white,
+    3px 3px 0 white;
+  font-size: 60px;
+  color: #00ac87;
   /* margin-bottom: 20px; */
 }
 
@@ -29,7 +34,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* padding: 10px; */
+  width: 70%;
 }
 
 .imageContainer > img {
@@ -37,10 +42,14 @@
   height: auto;
 }
 
-.how-to-play-container > p {
+.textOverlay {
   position: absolute;
 }
 
+.textOverlay > p {
+  color: white;
+}
+
 .wonkyShape {
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }

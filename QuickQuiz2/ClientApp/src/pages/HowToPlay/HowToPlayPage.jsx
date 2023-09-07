@@ -11,17 +11,27 @@ function HowToPlayPage() {
         <h1>How to play</h1>
         <div className={howToPlayStyle.imageContainer}>
           <img src={wonkyShape} alt="" />
-          <p className={howToPlayStyle.textOverlay}>
-            An image or description of a [category] will be displayed in the
-            middle of the screen. Below it possible (solutions?) will be
-            cycling. When the correct (solutions?) is shown, press your button
-            faster than your opponent to score a point! If you press your button
-            at the wrong answer however your button is locked for (duration),
-            giving your opponent a much easier time to score points. So be
-            careful! The game can be paused with the button in the top right
-            corner, or you can return to the difficulty screen with the button
-            in the top left corner.
-          </p>
+          <div className={howToPlayStyle.textOverlay}>
+            <p>
+              An image or description of a [category] will be displayed in the
+              middle of the screen. Below it possible (solutions?) will be
+              cycling.
+            </p>
+            <p>
+              When the correct (solutions?) is shown, press your button faster
+              than your opponent to score a point!
+            </p>
+            <p>
+              If you press your button at the wrong answer however your button
+              is locked for (duration), giving your opponent a much easier time
+              to score points. So be careful!
+            </p>
+            <p>
+              The game can be paused with the button in the top right corner, or
+              you can return to the difficulty screen with the button in the top
+              left corner.
+            </p>
+          </div>
         </div>
       </div>
 
