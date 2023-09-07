@@ -16,8 +16,14 @@
 
 .container {
     height: 100%;
-    margin-top: 6rem;
+    margin-top: 10rem;
     align-items: center;
     display: flex;
     flex-direction: column;
+}
+
+.arrowContainer {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
 }

@@ -4,6 +4,7 @@ import WonkyContainerText from '../../components/WonkyShapes/WonkyTexts/WonkyCon
 import difficultyStyle from './SelectDifficultyPage.module.css'
 import { AppContext } from "../../context/AppContext";
 import { useContext } from "react";
+import BackArrow from "../../components/BackArrow/BackArrow";
 
 function SelectDifficultyPage() {
 
@@ -20,6 +21,10 @@ function SelectDifficultyPage() {
   return ( 
     <div className={difficultyStyle.backgroundContainer}>
       <div className={difficultyStyle.container}>
+        <span className={difficultyStyle.arrowContainer}>
+          <BackArrow onClickUrl="/"/>
+        </span>
+
         <h1>Choose Difficulty!</h1>
 
         <Link to='/howtoplay' onClick={setEasyDifficulty}>
