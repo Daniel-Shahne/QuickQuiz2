@@ -8,13 +8,12 @@ import BackArrow from "../../components/BackArrow/BackArrow";
 function HowToPlayPage() {
   return (
     <div className={howToPlayStyle.howToPlayContainer}>
-      <Link to="/selectdifficulty">
+   
       <div className={howToPlayStyle.backarrow}>
-        <BackArrow />
+        <BackArrow onClickUrl="/selectdifficulty"/>
         </div>
-        </Link>
-      <div className={howToPlayStyle.howToPlayInnerContainer}>
         
+      <div className={howToPlayStyle.howToPlayInnerContainer}>  
         <h1>How to play</h1>
         <div className={howToPlayStyle.imageContainer}>
           <img src={wonkyShape} alt="" />
