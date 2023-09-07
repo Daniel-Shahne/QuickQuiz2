@@ -27,6 +27,7 @@
 
 .imageContainer {
   position: relative;
+
 }
 
 .textOverlay {
@@ -52,4 +53,10 @@
 
 .wonkyShape {
   margin-bottom: 40px;
+
+}
+.backarrow{
+  position: absolute;
+  top: 5%;
+  left: 2%;
 }

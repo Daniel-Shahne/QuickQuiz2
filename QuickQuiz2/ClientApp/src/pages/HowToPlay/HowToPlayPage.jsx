@@ -1,13 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import howToPlayStyle from "./howtoplaypage.module.css";
-import wonkyShape from "./howtoplay-wonkyshape.png";
+import wonkyShape from "./howtoplay-wonkycontainer.png";
 import WonkyContainerText from "../../components/WonkyShapes/WonkyTexts/WonkyContainerText/WonkyContainerText";
+import BackArrow from "../../components/BackArrow/BackArrow";
 
 function HowToPlayPage() {
   return (
     <div className={howToPlayStyle.howToPlayContainer}>
+      <Link to="/selectdifficulty">
+      <div className={howToPlayStyle.backarrow}>
+        <BackArrow />
+        </div>
+        </Link>
       <div className={howToPlayStyle.howToPlayInnerContainer}>
+        
         <h1>How to play</h1>
         <div className={howToPlayStyle.imageContainer}>
           <img src={wonkyShape} alt="" />
