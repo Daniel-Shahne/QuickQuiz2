@@ -1,0 +1,61 @@
+.howToPlayContainer {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-image: url("./howtoplay-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.howToPlayInnerContainer {
+  margin-top: 70px;
+}
+
+.howToPlayInnerContainer > h1 {
+  text-align: center;
+  text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white,
+    2px 2px 0 white, -3px -3px 0 white, 3px -3px 0 white, -3px 3px 0 white,
+    3px 3px 0 white;
+  font-size: 60px;
+  color: #00ac87;
+}
+
+.imageContainer {
+  position: relative;
+
+}
+
+.textOverlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+}
+
+.imageContainer > img {
+  width: 750px;
+  height: auto;
+}
+
+.textOverlay {
+  position: absolute;
+}
+
+.textOverlay > p {
+  color: white;
+}
+
+.wonkyShape {
+  margin-bottom: 40px;
+
+}
+.backarrow{
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}
