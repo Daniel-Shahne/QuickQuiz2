@@ -9,10 +9,13 @@ import HowToPlayPage from "./pages/HowToPlay/HowToPlayPage";
 import ResultsPage from "./pages/Results/ResultsPage";
 import SelectDifficultyPage from "./pages/SelectDifficulty/SelectDifficultyPage";
 import NotFoundPage from "./pages/NotFound/NotFoundPage";
+import BackArrow from "./components/BackArrow/BackArrow";
+
 
 function App() {
   return (
     <div>
+      <BackArrow onClickUrl="/game"></BackArrow>
       <AppContextProvider>
         <Routes>
           <Route path="/" element={<HomePage />} />
