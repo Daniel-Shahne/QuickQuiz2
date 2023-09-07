@@ -75,8 +75,6 @@ function GamePage() {
         // Increment cycles since last correct answer
         setCycledAnswersSinceCorrect((prevState) => prevState + 1);
 
-        console.log(cycledAnswersSinceCorrect);
-
         // Variable containing the next answer index (to be changed below)
         let nextAnswerIndex = Math.floor(Math.random() * allQuestions.length);
 
@@ -103,6 +101,17 @@ function GamePage() {
       return () => clearInterval(timer);
     }
   }, [allQuestions, cycledAnswersSinceCorrect, randomCycleAmount]);
+
+  /** useEffect for adding javascript event listeners.
+   */
+  useEffect(() => {
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "a" || event.key === "l") {
+        // TODO: Write function that determines who gets points
+      }
+    });
+    return () => window.removeEventListener("keydown");
+  }, []);
 
   return (
     <div>
