@@ -1,5 +1,6 @@
 // Logic imports
 import React, { useContext, useEffect, useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 // Context import
 import { AppContext } from "../../context/AppContext";
 
@@ -9,10 +10,13 @@ function GamePage() {
   const timeoutOnWrongAnswer = 3000;
   const randomCyclesUpperLimit = 8;
   const timeForEachAnswer = 1000;
-  const questionLimit = 10;
+  const questionLimit = 3;
 
   // Get the context variables
   const { allQuestions, difficulty } = useContext(AppContext);
+
+  // Navigator for going between pages
+  const navigator = useNavigate();
 
   // Saves the index of correctly answered questions
   const [takenQuestionIndexes, setTakenQuestionIndexes] = useState([]);
@@ -50,6 +54,7 @@ function GamePage() {
       keyLEnabled,
       allQuestions,
       gameIsPaused,
+      takenQuestionIndexes,
     };
   }, [
     activeQuestionIndex,
@@ -59,6 +64,7 @@ function GamePage() {
     keyLEnabled,
     allQuestions,
     gameIsPaused,
+    takenQuestionIndexes,
   ]);
 
   /** Due to allQuestions being instantiated as null, the values of
@@ -83,7 +89,25 @@ function GamePage() {
     Math.floor(Math.random() * randomCyclesUpperLimit) + 1
   );
 
-  function goToResults() {}
+  /** Navigates to Results page while sending the playerPoints
+   * object (state variable) to that page
+   */
+  function goToResults() {
+    console.log("Reached navigator function");
+    navigator("/results", { state: stateRef.current.playerPoints });
+  }
+
+  /** Navigates to the results page if the questions limit
+   * has been reached
+   */
+  useEffect(() => {
+    // If questionlimit is reached, go to results
+    console.log(takenQuestionIndexes);
+    if (takenQuestionIndexes.length >= questionLimit) {
+      goToResults();
+      return;
+    }
+  }, [takenQuestionIndexes]);
 
   /**
    * Rolls a random number between 0 and the length of the
@@ -92,14 +116,13 @@ function GamePage() {
    *
    * In other words it selects the next active question given it hasnt
    * already been answered
+   *
+   * If the limit of question cycles (set by questionLimit) has been
+   * reached then it navigates to Results page with that information
+   * in playerPoints
    */
   function setNextRandomQuestionIndex() {
-    // If questionlimit is reached, go to results
-    if (takenQuestionIndexes.length >= questionLimit) {
-    }
-
     let nextQuestionIndex;
-
     do {
       nextQuestionIndex = Math.floor(
         Math.random() * stateRef.current.allQuestions.length
@@ -160,6 +183,11 @@ function GamePage() {
     activeQuestionIndex,
   ]);
 
+  /**
+   * Temporarily disables a key for a given time
+   * @param {string} key A character representing the keyboard key, like "a"
+   * @param {*} timeout The timout in milliseconds
+   */
   function temporarilyDisableKeyPress(key, timeout) {
     switch (key) {
       case "a":
