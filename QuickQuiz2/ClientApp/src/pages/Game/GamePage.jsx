@@ -9,6 +9,7 @@ function GamePage() {
   const timeoutOnWrongAnswer = 3000;
   const randomCyclesUpperLimit = 8;
   const timeForEachAnswer = 1000;
+  const questionLimit = 10;
 
   // Get the context variables
   const { allQuestions, difficulty } = useContext(AppContext);
@@ -180,6 +181,14 @@ function GamePage() {
       return newState;
     });
   }
+  function addTakenQuestions() {
+    setTakenQuestionIndexes((prevState) => {
+      const newState = [...prevState].push(
+        stateRef.current.activeQuestionIndex
+      );
+      return newState;
+    });
+  }
 
   function handleKeyPress(event) {
     if (
@@ -191,6 +200,7 @@ function GamePage() {
           if (stateRef.current.keyAEnabled && !stateRef.current.gameIsPaused) {
             temporarilyDisableKeyPress("a", timeoutOnCorrectAnswer);
             incrementPlayersPoints("player1Points");
+            addTakenQuestions();
             setNextRandomQuestionIndex();
           } else {
             // TODO: Display feedback if attempting to score
@@ -233,9 +243,13 @@ function GamePage() {
   }, []);
 
   // Only for debugging
+  // useEffect(() => {
+  //   console.log(playerPoints, keyAEnabled, keyLEnabled);
+  // }, [playerPoints, keyAEnabled, keyLEnabled]);¨
+
   useEffect(() => {
-    console.log(playerPoints, keyAEnabled, keyLEnabled);
-  }, [playerPoints, keyAEnabled, keyLEnabled]);
+    console.log(takenQuestionIndexes);
+  }, [takenQuestionIndexes]);
 
   function pauseGame() {
     setGameIsPaused((prevState) => {
