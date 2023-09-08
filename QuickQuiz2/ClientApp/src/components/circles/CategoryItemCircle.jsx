@@ -28,7 +28,11 @@ function CategoryItemCircle({ question, width, isClickable, onClickUrl = "" }) {
           />
 
           {isHovered && (
-            <h1 onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            <h1
+              className={circleStyle.circleHeading}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
               {question.answer}
             </h1>
           )}

@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { AppContext } from "../../context/AppContext";
 import homePageStyle from "./homepage.module.css";
 import wonkyHeadingShape from "./wonky-heading-shape.png";
+import WonkyContainerImage from "../../components/WonkyShapes/WonkyImages/WonkyContainerImage/WonkyContainerImage";
 
 function HomePage() {
   const { difficulty } = useContext(AppContext);
@@ -17,7 +18,15 @@ function HomePage() {
           <h3>Think fast, Act faster!</h3>
         </div>
       </div>
-      <div>Björn</div>
+
+      <div className={homePageStyle.slothContainer}>
+        <WonkyContainerImage
+          question={{ imagePath: "sloth.png" }}
+          svgSizeMultiplier="2.2"
+          svgRotateDegree="1"
+          imageSizeMultiplier="0.8"
+        />
+      </div>
       <div
         className={`${homePageStyle.gridColSpan2} ${homePageStyle.gridRowSpan2}`}
       >
