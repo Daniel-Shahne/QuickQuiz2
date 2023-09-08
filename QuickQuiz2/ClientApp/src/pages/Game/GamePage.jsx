@@ -197,6 +197,7 @@ function GamePage() {
           if (stateRef.current.keyLEnabled) {
             disableKeyPress("l", timeoutOnCorrectAnswer);
             incrementPlayersPoints("player2Points");
+            setNextRandomQuestionIndex();
           } else {
             // TODO: Display feedback if attempting to score
             // while players button is disabled
@@ -241,6 +242,8 @@ function GamePage() {
           <h1>
             Current cycled answer is: {allQuestions[activeAnswerIndex].answer}
           </h1>
+          <p>Player 1: {playerPoints.player1Points}</p>
+          <p>Player 2: {playerPoints.player2Points}</p>
         </div>
       ) : null}
     </div>
