@@ -12,11 +12,18 @@ function HomePage() {
   return (
     <div className={homePageStyle.bgContainer}>
     <div className={homePageStyle.gridContainer}>
-      <div>Not</div>
+      <div className={homePageStyle.orangutanContainer}>
+      <WonkyContainerImage
+          question={{ imagePath: "orangutan.png" }}
+          svgSizeMultiplier="3"
+          svgRotateDegree="30"
+          imageSizeMultiplier="0.9"
+        />
+      </div>
       <div className={homePageStyle.heading}>
         <img src={wonkyHeadingShape} alt="" />
         <div className={homePageStyle.textOverlay}>
-          <h1>Quick Quiz</h1>
+          <h1>QUICK QUIZ</h1>
           <h3>Think fast, Act faster!</h3>
         </div>
       </div>
@@ -39,9 +46,10 @@ function HomePage() {
         />
       </div>
       <div className={homePageStyle.btncontainer}>
-      <Link to="/selectdifficulty">
+  
         <div className={homePageStyle.playbtn}>
         <WonkyContainerText
+        onClickUrl='/selectdifficulty'
             shapeId="1"
             text="Play"
             shapeFill="#853AC8"
@@ -49,10 +57,10 @@ function HomePage() {
             fontSize="30px"
           />
         </div>
-        </Link>
-        <Link to="/game">
+       
         <div className={homePageStyle.learnbtn}>
           <WonkyContainerText
+            onClickUrl='/howtoplay'
             shapeId="2"
             text="Learn"
             shapeFill="#853AC8"
@@ -60,12 +68,12 @@ function HomePage() {
             fontSize="30px"
           />
           </div>
-          </Link>
+          
       </div>
       <div className={homePageStyle.vovve}>
       <WonkyContainerImage
           question={{ imagePath: "donkey.png" }}
-          svgSizeMultiplier="2.8"
+          svgSizeMultiplier="2.9"
           svgRotateDegree="30"
           imageSizeMultiplier="0.9"
         />
