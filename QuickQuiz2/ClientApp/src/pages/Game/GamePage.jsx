@@ -44,8 +44,16 @@ function GamePage() {
       playerPoints,
       keyAEnabled,
       keyLEnabled,
+      allQuestions,
     };
-  }, [activeQuestionIndex, activeAnswerIndex, playerPoints]);
+  }, [
+    activeQuestionIndex,
+    activeAnswerIndex,
+    playerPoints,
+    keyAEnabled,
+    keyLEnabled,
+    allQuestions,
+  ]);
 
   /** Due to allQuestions being instantiated as null, the values of
    * the index variables can only be set after the data has been fetched
@@ -85,7 +93,9 @@ function GamePage() {
      * is found
      */
     while (!takenQuestionIndexes.includes(nextQuestionIndex)) {
-      nextQuestionIndex = Math.floor(Math.random() * allQuestions.length);
+      nextQuestionIndex = Math.floor(
+        Math.random() * stateRef.current.allQuestions.length
+      );
     }
 
     // Set the active question index to the randomly rolled value
@@ -180,6 +190,7 @@ function GamePage() {
           if (stateRef.current.keyAEnabled) {
             disableKeyPress("a", timeoutOnCorrectAnswer);
             incrementPlayersPoints("player1Points");
+            setNextRandomQuestionIndex();
           } else {
             // TODO: Display feedback if attempting to score
             // while players button is disabled
