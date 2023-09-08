@@ -171,7 +171,7 @@ function GamePage() {
         case "KeyA":
           setKeyAEnabled(false);
           setTimeout(() => {
-            setKeyAEnabled(false);
+            setKeyAEnabled(true);
           }, 3000); // 3000 milliseconds (3 seconds)
           break;
         case "KeyL":
