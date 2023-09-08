@@ -1,0 +1,47 @@
+.gridContainer {
+  display: grid;
+  /* gap: 1.5rem; */
+  grid-template-columns: 1fr 1fr 3fr 2fr;
+  grid-template-rows: 2fr 1fr 1fr;
+}
+
+.heading {
+  grid-column-start: 3;
+  position: relative;
+}
+
+.gridColSpan2 {
+  grid-column: span 2;
+}
+
+.gridRowSpan2 {
+  grid-row: span 2;
+  text-align: center;
+}
+
+.playBtn {
+  grid-column-start: 3;
+}
+
+.learnBtn {
+  grid-column-start: 3;
+}
+
+.vovve {
+  grid-row-start: 2;
+  grid-column-start: 4;
+  grid-row-end: span 2;
+}
+
+.textOverlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  text-align: center;
+}
+
+.textOverlay > h1 {
+  font-size: 100px;
+}
