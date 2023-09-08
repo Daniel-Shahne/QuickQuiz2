@@ -27,12 +27,9 @@ function SelectDifficultyPage() {
 
         <h1>Choose Difficulty!</h1>
 
-        <Link to='/howtoplay' onClick={setEasyDifficulty}>
-          <WonkyContainerText shapeId='1' text='Easy' shapeFill='#00AC87' sizeMultiplier='4' fontSize='30px'/>
-        </Link>
-        <Link to='/howtoplay' onClick={setHardDifficulty}>
-          <WonkyContainerText shapeId='2' text='Hard' shapeFill='#853AC8' sizeMultiplier='4' fontSize='30px'/>
-        </Link>
+          <WonkyContainerText onClickUrl='/howtoplay' shapeId='1' text='Easy' shapeFill='#00AC87' sizeMultiplier='4' fontSize='30px'/>
+
+          <WonkyContainerText onClickUrl='/howtoplay' shapeId='2' text='Hard' shapeFill='#853AC8' sizeMultiplier='4' fontSize='30px'/>
       </div> 
     </div>
     

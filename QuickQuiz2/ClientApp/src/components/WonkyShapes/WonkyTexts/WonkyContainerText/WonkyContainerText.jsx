@@ -8,6 +8,7 @@ import WonkyShapeChar2 from "../shapesForWonkyTexts/WonkyShapeChar2";
 import wonkyCss from "./wonkycontainertext.module.css";
 
 function WonkyContainerText({
+  onClickUrl,
   shapeId,
   text,
   shapeFill,
@@ -38,11 +39,12 @@ function WonkyContainerText({
         <span className={wonkyCss.wonkyContainerTextContainer}>
           <p
             className={wonkyCss.wonkyContainerTextText}
-            style={{ fontSize: fontSize }}
+            style={{ fontSize: fontSize, pointerEvents: 'none' }}
           >
             {text}
           </p>
           <ShapeComponent
+            onClickUrl={onClickUrl}
             shapeFill={shapeFill}
             sizeMultiplier={sizeMultiplier}
           />
