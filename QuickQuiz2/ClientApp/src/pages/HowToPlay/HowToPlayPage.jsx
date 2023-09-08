@@ -41,9 +41,9 @@ function HowToPlayPage() {
         </div>
       </div>
 
-      <Link to="/game">
         <div className={howToPlayStyle.wonkyShape}>
           <WonkyContainerText
+            onClickUrl='/game'
             shapeId="1"
             text="Continue"
             shapeFill="#00AC87"
@@ -51,7 +51,6 @@ function HowToPlayPage() {
             fontSize="30px"
           />
         </div>
-      </Link>
     </div>
   );
 }
