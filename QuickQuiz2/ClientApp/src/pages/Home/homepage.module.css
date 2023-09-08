@@ -1,9 +1,20 @@
+.bgContainer{
+  background-image: url("./landingpageBG.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position:fixed;
+  height: 100%;
+  width: 100%;
+
+}
 .gridContainer {
   display: grid;
   gap: 1.5rem;
   grid-template-columns: 1fr 1fr 3fr 2fr;
   grid-template-rows: 2fr 1fr 1fr;
   margin-top: 30px;
+
 }
 
 .gridColSpan2 {
@@ -15,12 +26,27 @@
   text-align: center;
 }
 
-.playBtn {
+.btncontainer {
   grid-column-start: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-row: span 2;
+  flex-direction: column;
+
+}
+.playbtn{
+  position: relative;
+  top: 0;
+  margin-bottom: -20px;
 }
 
-.learnBtn {
-  grid-column-start: 3;
+.learnbtn {
+  /* grid-column-start: 3;
+  display: flex;
+  justify-content: center; */
+  top: -20px;
+  position: relative;
 }
 
 .vovve {
@@ -30,20 +56,26 @@
 }
 
 .heading {
+
   grid-column-start: 3;
   position: relative;
 }
 
 .textOverlay {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 70%;
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center;  
+  text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white,
+  2px 2px 0 white, -3px -3px 0 white, 3px -3px 0 white, -3px 3px 0 white,
+  3px 3px 0 white;
+  color: #00ac87;
+  
 }
 
 .textOverlay > h1 {
@@ -53,3 +85,4 @@
 .slothContainer {
   /* margin-top: 30px; */
 }
+
