@@ -83,6 +83,8 @@ function GamePage() {
     Math.floor(Math.random() * randomCyclesUpperLimit) + 1
   );
 
+  function goToResults() {}
+
   /**
    * Rolls a random number between 0 and the length of the
    * allQuestions array and sets the value of activeQuestionIndex
@@ -92,6 +94,10 @@ function GamePage() {
    * already been answered
    */
   function setNextRandomQuestionIndex() {
+    // If questionlimit is reached, go to results
+    if (takenQuestionIndexes.length >= questionLimit) {
+    }
+
     let nextQuestionIndex;
 
     do {
