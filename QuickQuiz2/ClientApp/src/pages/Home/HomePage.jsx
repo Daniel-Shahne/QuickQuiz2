@@ -11,74 +11,72 @@ function HomePage() {
 
   return (
     <div className={homePageStyle.bgContainer}>
-    <div className={homePageStyle.gridContainer}>
-      <div className={homePageStyle.orangutanContainer}>
-      <WonkyContainerImage
-          question={{ imagePath: "orangutan.png" }}
-          svgSizeMultiplier="3"
-          svgRotateDegree="30"
-          imageSizeMultiplier="0.9"
-        />
-      </div>
-      <div className={homePageStyle.heading}>
-        <img src={wonkyHeadingShape} alt="" />
-        <div className={homePageStyle.textOverlay}>
-          <h1>QUICK QUIZ</h1>
-          <h3>Think fast, Act faster!</h3>
-        </div>
-      </div>
-      <div className={homePageStyle.slothContainer}>
-        <WonkyContainerImage
-          question={{ imagePath: "sloth.png" }}
-          svgSizeMultiplier="2.8"
-          svgRotateDegree="1"
-          imageSizeMultiplier="0.9"
-        />
-      </div>
-      <div
-        className={`${homePageStyle.gridColSpan2} ${homePageStyle.gridRowSpan2}`}
-      >
-        <WonkyContainerImage
-          question={{ imagePath: "quokka.png" }}
-          svgSizeMultiplier="3"
-          svgRotateDegree="0"
-          imageSizeMultiplier="0.9"
-        />
-      </div>
-      <div className={homePageStyle.btncontainer}>
-  
-        <div className={homePageStyle.playbtn}>
-        <WonkyContainerText
-        onClickUrl='/selectdifficulty'
-            shapeId="1"
-            text="Play"
-            shapeFill="#853AC8"
-            sizeMultiplier="4"
-            fontSize="30px"
+      <div className={homePageStyle.gridContainer}>
+        <div className={homePageStyle.orangutanContainer}>
+          <WonkyContainerImage
+            question={{ imagePath: "orangutan.png" }}
+            svgSizeMultiplier="3.3"
+            svgRotateDegree="30"
+            imageSizeMultiplier="1.1"
           />
         </div>
-       
-        <div className={homePageStyle.learnbtn}>
-          <WonkyContainerText
-            onClickUrl='/howtoplay'
-            shapeId="2"
-            text="Learn"
-            shapeFill="#853AC8"
-            sizeMultiplier="4"
-            fontSize="30px"
-          />
+        <div className={homePageStyle.heading}>
+          <img src={wonkyHeadingShape} alt="" />
+          <div className={homePageStyle.textOverlay}>
+            <h1>QUICK QUIZ</h1>
+            <h3>Think fast, Act faster!</h3>
           </div>
-          
+        </div>
+        <div className={homePageStyle.slothContainer}>
+          <WonkyContainerImage
+            question={{ imagePath: "sloth.png" }}
+            svgSizeMultiplier="3.3"
+            svgRotateDegree="1"
+            imageSizeMultiplier="1.1"
+          />
+        </div>
+        <div
+          className={`${homePageStyle.gridRowSpan2} ${homePageStyle.quokkaContainer}`}
+        >
+          <WonkyContainerImage
+            question={{ imagePath: "quokka.png" }}
+            svgSizeMultiplier="3.3"
+            svgRotateDegree="0"
+            imageSizeMultiplier="1.1"
+          />
+        </div>
+        <div className={homePageStyle.btncontainer}>
+          <div className={homePageStyle.playbtn}>
+            <WonkyContainerText
+              onClickUrl="/selectdifficulty"
+              shapeId="1"
+              text="Play"
+              shapeFill="#853AC8"
+              sizeMultiplier="4"
+              fontSize="30px"
+            />
+          </div>
+
+          <div className={homePageStyle.learnbtn}>
+            <WonkyContainerText
+              onClickUrl="/howtoplay"
+              shapeId="2"
+              text="Learn"
+              shapeFill="#853AC8"
+              sizeMultiplier="4"
+              fontSize="30px"
+            />
+          </div>
+        </div>
+        <div className={homePageStyle.vovve}>
+          <WonkyContainerImage
+            question={{ imagePath: "donkey.png" }}
+            svgSizeMultiplier="3.3"
+            svgRotateDegree="30"
+            imageSizeMultiplier="1.1"
+          />
+        </div>
       </div>
-      <div className={homePageStyle.vovve}>
-      <WonkyContainerImage
-          question={{ imagePath: "donkey.png" }}
-          svgSizeMultiplier="2.9"
-          svgRotateDegree="30"
-          imageSizeMultiplier="0.9"
-        />
-      </div>
-    </div>
     </div>
   );
 }
