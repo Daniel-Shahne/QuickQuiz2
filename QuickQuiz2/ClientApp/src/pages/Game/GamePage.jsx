@@ -86,17 +86,13 @@ function GamePage() {
    * already been answered
    */
   function setNextRandomQuestionIndex() {
-    let nextQuestionIndex = 0;
+    let nextQuestionIndex;
 
-    /** Keeps rolling a new random value between 0 and the allQuestions
-     * array length until a value not existing in takenQuestionIndexes
-     * is found
-     */
-    while (!takenQuestionIndexes.includes(nextQuestionIndex)) {
+    do {
       nextQuestionIndex = Math.floor(
         Math.random() * stateRef.current.allQuestions.length
       );
-    }
+    } while (takenQuestionIndexes.includes(nextQuestionIndex));
 
     // Set the active question index to the randomly rolled value
     setActiveQuestionIndex(() => nextQuestionIndex);
