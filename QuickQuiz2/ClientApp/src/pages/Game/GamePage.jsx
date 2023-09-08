@@ -26,6 +26,9 @@ function GamePage() {
     playerPoints,
   });
 
+  const [keyAEnabled, setKeyAEnabled] = useState(true);
+  const [keyLEnabled, setKeyLEnabled] = useState(true);
+
   // Update the ref object whenever the state changes
   useEffect(() => {
     stateRef.current = {
@@ -140,6 +143,30 @@ function GamePage() {
             newState.player1Points += 1;
             return newState;
           });
+          break;
+        case "KeyL":
+          setPlayerPoints((prevState) => {
+            const newState = { ...prevState };
+            newState.player2Points += 1;
+            return newState;
+          });
+          break;
+      }
+    } else {
+      switch (event.code) {
+        case "KeyA":
+          setKeyAEnabled(false);
+          setTimeout(() => {
+            setKeyAEnabled(true);
+          }, 3000); // 3000 milliseconds (3 seconds)
+          break;
+        case "KeyL":
+          setKeyLEnabled(false);
+          setTimeout(() => {
+            setKeyLEnabled(true);
+          }, 3000); // 3000 milliseconds (3 seconds)
+          break;
+        default:
           break;
       }
     }
