@@ -36,6 +36,9 @@ function GamePage() {
   const [keyAEnabled, setKeyAEnabled] = useState(true);
   const [keyLEnabled, setKeyLEnabled] = useState(true);
 
+  // State variable determining that game is on.
+  const [gameIsPaused, setGameIsPaused] = useState(false);
+
   // Update the ref object whenever the state changes
   useEffect(() => {
     stateRef.current = {
@@ -45,6 +48,7 @@ function GamePage() {
       keyAEnabled,
       keyLEnabled,
       allQuestions,
+      gameIsPaused,
     };
   }, [
     activeQuestionIndex,
@@ -53,6 +57,7 @@ function GamePage() {
     keyAEnabled,
     keyLEnabled,
     allQuestions,
+    gameIsPaused,
   ]);
 
   /** Due to allQuestions being instantiated as null, the values of
@@ -148,7 +153,7 @@ function GamePage() {
     activeQuestionIndex,
   ]);
 
-  function disableKeyPress(key, timeout) {
+  function temporarilyDisableKeyPress(key, timeout) {
     switch (key) {
       case "a":
         if (stateRef.current.keyAEnabled) {
@@ -183,8 +188,8 @@ function GamePage() {
     ) {
       switch (event.code) {
         case "KeyA":
-          if (stateRef.current.keyAEnabled) {
-            disableKeyPress("a", timeoutOnCorrectAnswer);
+          if (stateRef.current.keyAEnabled && !stateRef.current.gameIsPaused) {
+            temporarilyDisableKeyPress("a", timeoutOnCorrectAnswer);
             incrementPlayersPoints("player1Points");
             setNextRandomQuestionIndex();
           } else {
@@ -194,8 +199,8 @@ function GamePage() {
           }
           break;
         case "KeyL":
-          if (stateRef.current.keyLEnabled) {
-            disableKeyPress("l", timeoutOnCorrectAnswer);
+          if (stateRef.current.keyLEnabled && !stateRef.current.gameIsPaused) {
+            temporarilyDisableKeyPress("l", timeoutOnCorrectAnswer);
             incrementPlayersPoints("player2Points");
             setNextRandomQuestionIndex();
           } else {
@@ -208,10 +213,10 @@ function GamePage() {
     } else {
       switch (event.code) {
         case "KeyA":
-          disableKeyPress("a", timeoutOnWrongAnswer);
+          temporarilyDisableKeyPress("a", timeoutOnWrongAnswer);
           break;
         case "KeyL":
-          disableKeyPress("l", timeoutOnWrongAnswer);
+          temporarilyDisableKeyPress("l", timeoutOnWrongAnswer);
           break;
         default:
           break;
@@ -232,6 +237,12 @@ function GamePage() {
     console.log(playerPoints, keyAEnabled, keyLEnabled);
   }, [playerPoints, keyAEnabled, keyLEnabled]);
 
+  function pauseGame() {
+    setGameIsPaused((prevState) => {
+      return !prevState;
+    });
+  }
+
   return (
     <div>
       {allQuestions ? (
@@ -239,15 +250,23 @@ function GamePage() {
           <h1>
             Current question is: {allQuestions[activeQuestionIndex].answer}
           </h1>
+
           <img
             src={`/images/animals/${allQuestions[activeQuestionIndex].imagePath}`}
             style={{ width: "1000px" }}
           />
-          <h1>
-            Current cycled answer is: {allQuestions[activeAnswerIndex].answer}
-          </h1>
-          <p>Player 1: {playerPoints.player1Points}</p>
-          <p>Player 2: {playerPoints.player2Points}</p>
+          {gameIsPaused ? (
+            <h1>Game is paused</h1>
+          ) : (
+            <h1>Current answer is: {allQuestions[activeAnswerIndex].answer}</h1>
+          )}
+          <h1>Current answer is: {allQuestions[activeAnswerIndex].answer}</h1>
+          <h1>Player 1: {playerPoints.player1Points}</h1>
+          <h1>Player 2: {playerPoints.player2Points}</h1>
+          <button
+            onClick={pauseGame}
+            style={{ width: "200px", height: "200px" }}
+          />
         </div>
       ) : null}
     </div>
