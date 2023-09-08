@@ -181,12 +181,9 @@ function GamePage() {
       return newState;
     });
   }
-  function addTakenQuestions() {
+  function addTakenQuestion() {
     setTakenQuestionIndexes((prevState) => {
-      const newState = [...prevState].push(
-        stateRef.current.activeQuestionIndex
-      );
-      return newState;
+      return [...prevState, stateRef.current.activeQuestionIndex];
     });
   }
 
@@ -200,7 +197,7 @@ function GamePage() {
           if (stateRef.current.keyAEnabled && !stateRef.current.gameIsPaused) {
             temporarilyDisableKeyPress("a", timeoutOnCorrectAnswer);
             incrementPlayersPoints("player1Points");
-            addTakenQuestions();
+            addTakenQuestion();
             setNextRandomQuestionIndex();
           } else {
             // TODO: Display feedback if attempting to score
@@ -212,6 +209,7 @@ function GamePage() {
           if (stateRef.current.keyLEnabled && !stateRef.current.gameIsPaused) {
             temporarilyDisableKeyPress("l", timeoutOnCorrectAnswer);
             incrementPlayersPoints("player2Points");
+            addTakenQuestion();
             setNextRandomQuestionIndex();
           } else {
             // TODO: Display feedback if attempting to score
