@@ -35,6 +35,8 @@ function GamePage() {
       activeQuestionIndex,
       activeAnswerIndex,
       playerPoints,
+      keyAEnabled,
+      keyLEnabled,
     };
   }, [activeQuestionIndex, activeAnswerIndex, playerPoints]);
 
@@ -138,7 +140,7 @@ function GamePage() {
     ) {
       switch (event.code) {
         case "KeyA":
-          if (keyAEnabled) {
+          if (stateRef.current.keyAEnabled) {
             setPlayerPoints((prevState) => {
               const newState = { ...prevState };
               newState.player1Points += 1;
@@ -151,7 +153,7 @@ function GamePage() {
           }
           break;
         case "KeyL":
-          if (keyLEnabled) {
+          if (stateRef.current.keyLEnabled) {
             setPlayerPoints((prevState) => {
               const newState = { ...prevState };
               newState.player2Points += 1;
@@ -167,10 +169,9 @@ function GamePage() {
     } else {
       switch (event.code) {
         case "KeyA":
-          console.log("Disabling key A");
-          setKeyAEnabled(() => false);
+          setKeyAEnabled(false);
           setTimeout(() => {
-            setKeyAEnabled(() => false);
+            setKeyAEnabled(false);
           }, 3000); // 3000 milliseconds (3 seconds)
           break;
         case "KeyL":
@@ -195,7 +196,7 @@ function GamePage() {
 
   // Only for debugging
   useEffect(() => {
-    console.log(playerPoints);
+    console.log(playerPoints, keyAEnabled, keyLEnabled);
   }, [playerPoints, keyAEnabled, keyLEnabled]);
 
   return (
