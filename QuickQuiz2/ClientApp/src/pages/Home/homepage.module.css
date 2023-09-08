@@ -1,0 +1,97 @@
+.bgContainer {
+  background-image: url("./landingpageBG.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+.gridContainer {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 2fr 3fr 2fr;
+  grid-template-rows: 2fr 1fr 1fr;
+  margin-top: 30px;
+}
+
+.gridColSpan2 {
+  grid-column: span 2;
+}
+
+.gridRowSpan2 {
+  grid-row: span 2;
+  text-align: center;
+}
+
+.btncontainer {
+  grid-column-start: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-row: span 2;
+  flex-direction: column;
+}
+.playbtn {
+  position: relative;
+  top: -100px;
+  margin-bottom: -30px;
+}
+
+.learnbtn {
+  top: -140px;
+  position: relative;
+}
+
+.vovve {
+  grid-row-start: 2;
+  grid-column-start: 3;
+  grid-row-end: span 2;
+}
+
+.heading {
+  grid-column-start: 2;
+  position: relative;
+  bottom: -60px;
+}
+
+.textOverlay {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white,
+    2px 2px 0 white, -3px -3px 0 white, 3px -3px 0 white, -3px 3px 0 white,
+    3px 3px 0 white;
+  color: #00ac87;
+}
+
+.textOverlay > h1 {
+  font-size: 100px;
+  font-weight: bold;
+}
+
+.textOverlay > h3 {
+  font-weight: bold;
+}
+
+.slothContainer {
+  /* margin-top: 30px; */
+}
+
+.quokkaContainer {
+  position: relative;
+  right: -100px;
+  top: -20px;
+}
+
+.orangutanContainer {
+  /* grid-column-end: span 2; */
+  position: relative;
+  right: -80px;
+}
