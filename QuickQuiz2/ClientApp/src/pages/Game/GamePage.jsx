@@ -133,6 +133,26 @@ function GamePage() {
     activeQuestionIndex,
   ]);
 
+  function disableKeyPress(key, timeout) {
+    switch (key) {
+      case "a":
+        if (stateRef.current.keyAEnabled) {
+          setKeyAEnabled(false);
+          setTimeout(() => {
+            setKeyAEnabled(true);
+          }, timeout);
+        }
+        break;
+      case "l":
+        if (stateRef.current.keyLEnabled) {
+          setKeyLEnabled(false);
+          setTimeout(() => {
+            setKeyLEnabled(true);
+          }, timeout);
+        }
+    }
+  }
+
   function handleKeyPress(event) {
     if (
       stateRef.current.activeAnswerIndex ===
@@ -144,6 +164,8 @@ function GamePage() {
             setPlayerPoints((prevState) => {
               const newState = { ...prevState };
               newState.player1Points += 1;
+
+              disableKeyPress("a", 500);
               return newState;
             });
           } else {
@@ -157,6 +179,8 @@ function GamePage() {
             setPlayerPoints((prevState) => {
               const newState = { ...prevState };
               newState.player2Points += 1;
+
+              disableKeyPress("l", 500);
               return newState;
             });
           } else {
@@ -169,16 +193,10 @@ function GamePage() {
     } else {
       switch (event.code) {
         case "KeyA":
-          setKeyAEnabled(false);
-          setTimeout(() => {
-            setKeyAEnabled(true);
-          }, 3000); // 3000 milliseconds (3 seconds)
+          disableKeyPress("a", 3000);
           break;
         case "KeyL":
-          setKeyLEnabled(false);
-          setTimeout(() => {
-            setKeyLEnabled(true);
-          }, 3000); // 3000 milliseconds (3 seconds)
+          disableKeyPress("l", 3000);
           break;
         default:
           break;
