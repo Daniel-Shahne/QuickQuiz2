@@ -6,14 +6,11 @@ import CategoryItemCircle from "../../../circles/CategoryItemCircle";
 import wonkyImgCss from "./wonkyImg.module.css";
 
 function WonkyContainerImage({
+  question,
   svgSizeMultiplier,
   svgRotateDegree,
   imageSizeMultiplier,
 }) {
-  let questionObj = {
-    answer: "Elephant",
-    imagePath: "elephant.png",
-  };
 
   let standardImageWidth = 200;
   let imageSizeMultiplierNum = parseFloat(imageSizeMultiplier);
@@ -30,7 +27,7 @@ function WonkyContainerImage({
 
       <span className={wonkyImgCss.categoryItemCircleOnSvg}>
         <CategoryItemCircle
-          question={questionObj}
+          question={question}
           width={`${calculatedImageWidth}px`}
           isClickable={false}
         />
