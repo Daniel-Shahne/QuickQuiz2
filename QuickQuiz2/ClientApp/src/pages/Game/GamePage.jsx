@@ -4,6 +4,12 @@ import React, { useContext, useEffect, useState, useRef } from "react";
 import { AppContext } from "../../context/AppContext";
 
 function GamePage() {
+  // Hard coded values for different timing
+  const timeoutOnCorrectAnswer = 1000;
+  const timeoutOnWrongAnswer = 3000;
+  const randomCyclesUpperLimit = 8;
+  const timeForEachAnswer = 1000;
+
   // Get the context variables
   const { allQuestions, difficulty } = useContext(AppContext);
 
@@ -26,6 +32,7 @@ function GamePage() {
     playerPoints,
   });
 
+  // State variables determining key pressing enabled or not
   const [keyAEnabled, setKeyAEnabled] = useState(true);
   const [keyLEnabled, setKeyLEnabled] = useState(true);
 
@@ -59,7 +66,7 @@ function GamePage() {
   // Saves how many RANDOM cycles should go until the correct answer is shown
   // Is randomly set each time the correct answer has been shown
   const [randomCycleAmount, setRandomCycleAmount] = useState(
-    Math.floor(Math.random() * 8) + 1
+    Math.floor(Math.random() * randomCyclesUpperLimit) + 1
   );
 
   /**
@@ -109,7 +116,9 @@ function GamePage() {
         if (cycledAnswersSinceCorrect >= randomCycleAmount) {
           nextAnswerIndex = activeQuestionIndex;
           setCycledAnswersSinceCorrect(() => 0);
-          setRandomCycleAmount(() => Math.floor(Math.random() * 8) + 1);
+          setRandomCycleAmount(
+            () => Math.floor(Math.random() * randomCyclesUpperLimit) + 1
+          );
         }
         // Displays wrong question answer
         else {
@@ -121,7 +130,7 @@ function GamePage() {
 
         // Save the determined index of next answer to state variable
         setActiveAnswerIndex(() => nextAnswerIndex);
-      }, 1000); // Time interval for index determination
+      }, timeForEachAnswer); // Time interval for index determination
 
       // Clear the interval when the component unmounts
       return () => clearInterval(timer);
@@ -153,6 +162,14 @@ function GamePage() {
     }
   }
 
+  function incrementPlayersPoints(playerProperty) {
+    setPlayerPoints((prevstate) => {
+      const newState = { ...prevstate };
+      newState[playerProperty] += 1;
+      return newState;
+    });
+  }
+
   function handleKeyPress(event) {
     if (
       stateRef.current.activeAnswerIndex ===
@@ -161,13 +178,8 @@ function GamePage() {
       switch (event.code) {
         case "KeyA":
           if (stateRef.current.keyAEnabled) {
-            setPlayerPoints((prevState) => {
-              const newState = { ...prevState };
-              newState.player1Points += 1;
-
-              disableKeyPress("a", 500);
-              return newState;
-            });
+            disableKeyPress("a", timeoutOnCorrectAnswer);
+            incrementPlayersPoints("player1Points");
           } else {
             // TODO: Display feedback if attempting to score
             // while players button is disabled
@@ -176,13 +188,8 @@ function GamePage() {
           break;
         case "KeyL":
           if (stateRef.current.keyLEnabled) {
-            setPlayerPoints((prevState) => {
-              const newState = { ...prevState };
-              newState.player2Points += 1;
-
-              disableKeyPress("l", 500);
-              return newState;
-            });
+            disableKeyPress("l", timeoutOnCorrectAnswer);
+            incrementPlayersPoints("player2Points");
           } else {
             // TODO: Display feedback if attempting to score
             // while players button is disabled
@@ -193,10 +200,10 @@ function GamePage() {
     } else {
       switch (event.code) {
         case "KeyA":
-          disableKeyPress("a", 3000);
+          disableKeyPress("a", timeoutOnWrongAnswer);
           break;
         case "KeyL":
-          disableKeyPress("l", 3000);
+          disableKeyPress("l", timeoutOnWrongAnswer);
           break;
         default:
           break;
