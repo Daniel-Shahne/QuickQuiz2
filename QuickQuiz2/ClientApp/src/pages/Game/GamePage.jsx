@@ -239,6 +239,10 @@ function GamePage() {
           <h1>
             Current question is: {allQuestions[activeQuestionIndex].answer}
           </h1>
+          <img
+            src={`/images/animals/${allQuestions[activeQuestionIndex].imagePath}`}
+            style={{ width: "1000px" }}
+          />
           <h1>
             Current cycled answer is: {allQuestions[activeAnswerIndex].answer}
           </h1>
