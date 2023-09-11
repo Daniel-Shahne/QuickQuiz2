@@ -1,4 +1,5 @@
 import React from "react";
+import BackArrow from '../../components/BackArrow/BackArrow'
 import resultsPageStyle from "./resultspage.module.css";
 import resultwonky1 from "./resultwonky1.png";
 import resultwonky2 from "./resultwonky2.png";
@@ -9,12 +10,31 @@ import WonkyContainerText from "../../components/WonkyShapes/WonkyTexts/WonkyCon
 function ResultsPage() {
   return (
     <div className={resultsPageStyle.resultsBGContainer}>
+      <span className={resultsPageStyle.backarrow}>
+        <BackArrow onClickUrl="/home"/>
+      </span>
+
       <div className={resultsPageStyle.resultsFlexContainer}></div>
       <div className={resultsPageStyle.flexrow1}>
-        <img src={resultwonky1} />
-        <img src={resultwonky2} />
+        <div className={resultsPageStyle.leftContainer}>
+          <div>
+            <h1>Player 1</h1>
+            <h2>Score: 6</h2>
+          </div>
+          <img style={{height: '30rem'}} src={resultwonky1} />  
+          
+        </div>
+        <div className={resultsPageStyle.rightContainer}>
+          <div>
+            <h1>Player 2</h1>
+            <h2>Score: 4</h2>
+          </div>
+
+          <img style={{height: '30rem'}} src={resultwonky2} />
+        </div>
+
       </div>
-      <div>
+      <div className={resultsPageStyle.btnContainer}>
         <WonkyContainerText
           onClickUrl="/selectdifficulty"
           shapeId="2"
