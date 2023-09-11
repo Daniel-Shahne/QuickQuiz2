@@ -311,11 +311,23 @@ function GamePage() {
                 <WonkyContainerText
                   shapeId="4"
                   text="L"
-                  sizeMultiplier="5.0"
+                  sizeMultiplier="6.0"
                   fontSize="100px"
                   shapeFill="#00AC87"
                 />
               </span>
+              <h2
+                id={gamePageStyle.player1}
+                className={gamePageStyle.greenInnerWhiteOuterText}
+              >
+                Player 1 points: {playerPoints.player1Points}
+              </h2>
+              <h2
+                id={gamePageStyle.player2}
+                className={gamePageStyle.greenInnerWhiteOuterText}
+              >
+                Player 2 points: {playerPoints.player2Points}
+              </h2>
               <div id={gamePageStyle.playItemContainer}>
                 <div id={gamePageStyle.playItemFlexBox}>
                   {difficulty === "easy" ? (
@@ -348,6 +360,7 @@ function GamePage() {
                   )}
                 </div>
               </div>
+              <span id={gamePageStyle.paus}></span>
             </div>
           </div>
         </div>
