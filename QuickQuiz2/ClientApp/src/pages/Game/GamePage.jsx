@@ -273,7 +273,6 @@ function GamePage() {
       }
     }
   }
-
   // Add and remove the event listener using useEffect
   useEffect(() => {
     window.addEventListener("keydown", handleKeyPress);
@@ -360,7 +359,7 @@ function GamePage() {
                   )}
                 </div>
               </div>
-              <span id={gamePageStyle.paus}></span>
+              <span id={gamePageStyle.paus} onClick={pauseGame}></span>
             </div>
           </div>
         </div>
