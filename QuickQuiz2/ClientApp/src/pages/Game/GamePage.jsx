@@ -7,6 +7,7 @@ import { AppContext } from "../../context/AppContext";
 import gamePageStyle from "./gamepage.module.css";
 // Custom component imports
 import CategoryItemCircle from "../../components/circles/CategoryItemCircle";
+import WonkyContainerText from "../../components/WonkyShapes/WonkyTexts/WonkyContainerText/WonkyContainerText";
 
 function GamePage() {
   // Hard coded values for different timing
@@ -297,6 +298,24 @@ function GamePage() {
         <div id={gamePageStyle.bgContainer}>
           <div id={gamePageStyle.gridAndPauseParent}>
             <div className={gamePageStyle.gridContainer}>
+              <span id={gamePageStyle.buttonA}>
+                <WonkyContainerText
+                  shapeId="3"
+                  text="A"
+                  sizeMultiplier="5.0"
+                  fontSize="100px"
+                  shapeFill="#00AC87"
+                />
+              </span>
+              <span id={gamePageStyle.buttonL}>
+                <WonkyContainerText
+                  shapeId="4"
+                  text="L"
+                  sizeMultiplier="5.0"
+                  fontSize="100px"
+                  shapeFill="#00AC87"
+                />
+              </span>
               <div id={gamePageStyle.playItemContainer}>
                 <div id={gamePageStyle.playItemFlexBox}>
                   {difficulty === "easy" ? (
