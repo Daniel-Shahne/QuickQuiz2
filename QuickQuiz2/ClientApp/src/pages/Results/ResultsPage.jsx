@@ -4,8 +4,11 @@ import resultsPageStyle from "./resultspage.module.css";
 import resultwonky1 from "./resultwonky1.png";
 import resultwonky2 from "./resultwonky2.png";
 import WonkyContainerText from "../../components/WonkyShapes/WonkyTexts/WonkyContainerText/WonkyContainerText";
+import { useLocation } from "react-router-dom";
 
 function ResultsPage() {
+  const { state } = useLocation();
+
   return (
     <div className={resultsPageStyle.resultsBGContainer}>
       <span className={resultsPageStyle.backarrow}>
@@ -17,6 +20,7 @@ function ResultsPage() {
         <div className={resultsPageStyle.leftContainer}>
           <div>
             <h1>Player 1</h1>
+            {/* <h2>`Score: ${state.player1Points}`</h2> */}
             <h2>Score: 6</h2>
           </div>
           <img
@@ -28,6 +32,7 @@ function ResultsPage() {
         <div className={resultsPageStyle.rightContainer}>
           <div>
             <h1>Player 2</h1>
+            {/* <h2>`Score: ${state.player2Points}`</h2> */}
             <h2>Score: 4</h2>
           </div>
 
