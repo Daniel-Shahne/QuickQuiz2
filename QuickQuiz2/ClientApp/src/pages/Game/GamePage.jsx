@@ -281,18 +281,23 @@ function GamePage() {
     };
   }, []);
 
-  /**
-   * Simply reverses the boolean state variable
-   * representing games paused state
-   */
-  function pauseGame() {
-    setGameIsPaused((prevState) => {
-      return !prevState;
-    });
-  }
-
   return (
     <div>
+      {gameIsPaused ? (
+        <div id={gamePageStyle.darkPlayPageOverlay}>
+          <div className={gamePageStyle.darkPlayPageFlexContainer}>
+            <h1
+              id={gamePageStyle.darkPlayPageText}
+              className={gamePageStyle.greenInnerWhiteOuterText}
+            >
+              Game is paused!
+            </h1>
+            <h2 className={gamePageStyle.greenInnerWhiteOuterText}>
+              Press the button below to unpause
+            </h2>
+          </div>
+        </div>
+      ) : null}
       {allQuestions ? (
         <div id={gamePageStyle.bgContainer}>
           <div id={gamePageStyle.gridAndPauseParent}>
@@ -359,7 +364,12 @@ function GamePage() {
                   )}
                 </div>
               </div>
-              <span id={gamePageStyle.paus} onClick={pauseGame}></span>
+              {!gameIsPaused ? (
+                <span
+                  id={gamePageStyle.paus}
+                  onClick={() => setGameIsPaused(() => true)}
+                ></span>
+              ) : null}
             </div>
           </div>
         </div>
