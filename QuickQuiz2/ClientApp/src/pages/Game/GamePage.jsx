@@ -14,6 +14,19 @@ function GamePage() {
 
   // Get the context variables
   const { allQuestions, difficulty } = useContext(AppContext);
+  /** Due to allQuestions being instantiated as null, the values of
+   * the index variables can only be set after the data has been fetched
+   */
+  useEffect(() => {
+    if (allQuestions !== null) {
+      setActiveQuestionIndex(() =>
+        Math.floor(Math.random() * allQuestions.length)
+      );
+      setActiveAnswerIndex(() =>
+        Math.floor(Math.random() * allQuestions.length)
+      );
+    }
+  }, [allQuestions]);
 
   // Navigator for going between pages
   const navigator = useNavigate();
@@ -30,19 +43,27 @@ function GamePage() {
     player2Points: 0,
   });
 
+  // State variables determining key pressing enabled or not
+  const [keyAEnabled, setKeyAEnabled] = useState(true);
+  const [keyLEnabled, setKeyLEnabled] = useState(true);
+
+  // Boolean state variable determining that game is paused or not.
+  const [gameIsPaused, setGameIsPaused] = useState(false);
+
+  // Holds how many answers have cycled since the last correct one
+  const [cycledAnswersSinceCorrect, setCycledAnswersSinceCorrect] = useState(0);
+  // Saves how many RANDOM cycles should go until the correct answer is shown
+  // Is randomly set after each time the correct answer has been shown
+  const [randomCycleAmount, setRandomCycleAmount] = useState(
+    Math.floor(Math.random() * randomCyclesUpperLimit) + 1
+  );
+
   // Mutable reference for state variables
   const stateRef = useRef({
     activeQuestionIndex,
     activeAnswerIndex,
     playerPoints,
   });
-
-  // State variables determining key pressing enabled or not
-  const [keyAEnabled, setKeyAEnabled] = useState(true);
-  const [keyLEnabled, setKeyLEnabled] = useState(true);
-
-  // State variable determining that game is on.
-  const [gameIsPaused, setGameIsPaused] = useState(false);
 
   // Update the ref object whenever the state changes
   useEffect(() => {
@@ -67,36 +88,6 @@ function GamePage() {
     takenQuestionIndexes,
   ]);
 
-  /** Due to allQuestions being instantiated as null, the values of
-   * the index variables can only be set after the data has been fetched
-   */
-  useEffect(() => {
-    if (allQuestions !== null) {
-      setActiveQuestionIndex(() =>
-        Math.floor(Math.random() * allQuestions.length)
-      );
-      setActiveAnswerIndex(() =>
-        Math.floor(Math.random() * allQuestions.length)
-      );
-    }
-  }, [allQuestions]);
-
-  // Holds how many answers have cycled since the last correct one
-  const [cycledAnswersSinceCorrect, setCycledAnswersSinceCorrect] = useState(0);
-  // Saves how many RANDOM cycles should go until the correct answer is shown
-  // Is randomly set each time the correct answer has been shown
-  const [randomCycleAmount, setRandomCycleAmount] = useState(
-    Math.floor(Math.random() * randomCyclesUpperLimit) + 1
-  );
-
-  /** Navigates to Results page while sending the playerPoints
-   * object (state variable) to that page
-   */
-  function goToResults() {
-    console.log("Reached navigator function");
-    navigator("/results", { state: stateRef.current.playerPoints });
-  }
-
   /** Navigates to the results page if the questions limit
    * has been reached
    */
@@ -104,7 +95,7 @@ function GamePage() {
     // If questionlimit is reached, go to results
     console.log(takenQuestionIndexes);
     if (takenQuestionIndexes.length >= questionLimit) {
-      goToResults();
+      navigator("/results", { state: stateRef.current.playerPoints });
       return;
     }
   }, [takenQuestionIndexes]);
@@ -116,10 +107,6 @@ function GamePage() {
    *
    * In other words it selects the next active question given it hasnt
    * already been answered
-   *
-   * If the limit of question cycles (set by questionLimit) has been
-   * reached then it navigates to Results page with that information
-   * in playerPoints
    */
   function setNextRandomQuestionIndex() {
     let nextQuestionIndex;
@@ -137,7 +124,8 @@ function GamePage() {
    * displayed answer either:
    *
    * The correct answer if cycles since last correct answer shown
-   * exceeds limit determined randomly
+   * exceeds limit determined randomly. Will also set a new random
+   * cycle amount (for cycles until correct answer displays) if so
    *
    * OR
    *
@@ -208,6 +196,11 @@ function GamePage() {
     }
   }
 
+  /**
+   * Increments a players points, stored in the playerPoints
+   * state variable.
+   * @param {*} playerProperty Either "player1Points" or "player2Points", the properties of the object state variable
+   */
   function incrementPlayersPoints(playerProperty) {
     setPlayerPoints((prevstate) => {
       const newState = { ...prevstate };
@@ -215,12 +208,22 @@ function GamePage() {
       return newState;
     });
   }
+
+  /**
+   * Stores the currently active question index in the array saving
+   * all the indexes of taken questions
+   */
   function addTakenQuestion() {
     setTakenQuestionIndexes((prevState) => {
       return [...prevState, stateRef.current.activeQuestionIndex];
     });
   }
 
+  /**
+   * Determines whether a player should get points or not when
+   * their key is pressed
+   * @param {*} event Event arguments passed by the parent caller method as this method isnt intended to be called outside an event listener
+   */
   function handleKeyPress(event) {
     if (
       stateRef.current.activeAnswerIndex ===
@@ -274,15 +277,10 @@ function GamePage() {
     };
   }, []);
 
-  // Only for debugging
-  // useEffect(() => {
-  //   console.log(playerPoints, keyAEnabled, keyLEnabled);
-  // }, [playerPoints, keyAEnabled, keyLEnabled]);¨
-
-  useEffect(() => {
-    console.log(takenQuestionIndexes);
-  }, [takenQuestionIndexes]);
-
+  /**
+   * Simply reverses the boolean state variable
+   * representing games paused state
+   */
   function pauseGame() {
     setGameIsPaused((prevState) => {
       return !prevState;
