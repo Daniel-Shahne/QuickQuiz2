@@ -3,6 +3,10 @@ import React, { useContext, useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 // Context import
 import { AppContext } from "../../context/AppContext";
+// Style import
+import gamePageStyle from "./gamepage.module.css";
+// Custom component imports
+import CategoryItemCircle from "../../components/circles/CategoryItemCircle";
 
 function GamePage() {
   // Hard coded values for different timing
@@ -290,29 +294,47 @@ function GamePage() {
   return (
     <div>
       {allQuestions ? (
-        <div>
-          <h1>
-            Current question is: {allQuestions[activeQuestionIndex].answer}
-          </h1>
-
-          <img
-            src={`/images/animals/${allQuestions[activeQuestionIndex].imagePath}`}
-            style={{ width: "1000px" }}
-          />
-          {gameIsPaused ? (
-            <h1>Game is paused</h1>
-          ) : (
-            <h1>Current answer is: {allQuestions[activeAnswerIndex].answer}</h1>
-          )}
-          <h1>Current answer is: {allQuestions[activeAnswerIndex].answer}</h1>
-          <h1>Player 1: {playerPoints.player1Points}</h1>
-          <h1>Player 2: {playerPoints.player2Points}</h1>
-          <button
-            onClick={pauseGame}
-            style={{ width: "200px", height: "200px" }}
-          />
+        <div id={gamePageStyle.bgContainer}>
+          <div id={gamePageStyle.gridAndPauseParent}>
+            <div className={gamePageStyle.gridContainer}>
+              <div id={gamePageStyle.playItemContainer}>
+                <div id={gamePageStyle.playItemFlexBox}>
+                  {difficulty === "easy" ? (
+                    <CategoryItemCircle
+                      question={allQuestions[activeQuestionIndex]}
+                      width="400px"
+                      isClickable={false}
+                    />
+                  ) : null}
+                  {difficulty === "hard" ? (
+                    <h4
+                      className={gamePageStyle.greenInnerWhiteOuterText}
+                      id={gamePageStyle.hardDiffDesc}
+                    >
+                      {allQuestions[activeQuestionIndex].hardDiffDesc}
+                    </h4>
+                  ) : null}
+                  <h2 className={gamePageStyle.greenInnerWhiteOuterText}>
+                    Whats this {allQuestions[activeQuestionIndex].category}{" "}
+                    name?
+                  </h2>
+                  {!gameIsPaused ? (
+                    <h3 className={gamePageStyle.greenInnerWhiteOuterText}>
+                      {allQuestions[activeAnswerIndex].answer}
+                    </h3>
+                  ) : (
+                    <h3 className={gamePageStyle.greenInnerWhiteOuterText}>
+                      Game is paused
+                    </h3>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      ) : null}
+      ) : (
+        <h1>Could not load questions</h1>
+      )}
     </div>
   );
 }
