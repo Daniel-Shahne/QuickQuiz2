@@ -285,16 +285,20 @@ function GamePage() {
     <div>
       {gameIsPaused ? (
         <div id={gamePageStyle.darkPlayPageOverlay}>
-          <div className={gamePageStyle.darkPlayPageFlexContainer}>
-            <h1
+          <div id={gamePageStyle.darkPlayPageFlexContainer}>
+            <div
               id={gamePageStyle.darkPlayPageText}
               className={gamePageStyle.greenInnerWhiteOuterText}
             >
               Game is paused!
-            </h1>
-            <h2 className={gamePageStyle.greenInnerWhiteOuterText}>
+            </div>
+            <div
+              id={gamePageStyle.darkPlayPageExplanation}
+              className={gamePageStyle.greenInnerWhiteOuterText}
+            >
               Press the button below to unpause
-            </h2>
+            </div>
+            <div id={gamePageStyle.unpauseDiv}></div>
           </div>
         </div>
       ) : null}
