@@ -12,12 +12,14 @@ import WonkyContainerText from "../../components/WonkyShapes/WonkyTexts/WonkyCon
 import unpauseBtnImage from "./unpauseBtn.png";
 
 function GamePage() {
-  // Hard coded values for different timing
+  // Hard coded values
   const timeoutOnCorrectAnswer = 1000;
   const timeoutOnWrongAnswer = 3000;
   const randomCyclesUpperLimit = 8;
   const timeForEachAnswer = 1000;
   const questionLimit = 3;
+  const buttonEnabledFill = "#00AC87";
+  const buttonDisabledFill = "#853AC8";
 
   // Get the context variables
   const { allQuestions, difficulty } = useContext(AppContext);
@@ -316,9 +318,11 @@ function GamePage() {
                 <WonkyContainerText
                   shapeId="3"
                   text="A"
-                  sizeMultiplier="5.0"
+                  sizeMultiplier="6.0"
                   fontSize="100px"
-                  shapeFill="#00AC87"
+                  shapeFill={
+                    keyAEnabled ? buttonEnabledFill : buttonDisabledFill
+                  }
                 />
               </span>
               <span id={gamePageStyle.buttonL}>
@@ -327,7 +331,9 @@ function GamePage() {
                   text="L"
                   sizeMultiplier="6.0"
                   fontSize="100px"
-                  shapeFill="#00AC87"
+                  shapeFill={
+                    keyLEnabled ? buttonEnabledFill : buttonDisabledFill
+                  }
                 />
               </span>
               <h2
