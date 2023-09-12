@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-function WonkyShapeText2({ shapeFill, sizeMultiplier }) {
+function WonkyShapeText2({ shapeFill, sizeMultiplier, onClickUrl }) {
   let sizeMultiplierNum = parseFloat(sizeMultiplier);
 
   const [calculatedWidth, setCalculatedWidth] = useState(
@@ -20,12 +21,15 @@ function WonkyShapeText2({ shapeFill, sizeMultiplier }) {
         xmlns="http://www.w3.org/2000/svg"
       >
         <g filter="url(#filter0_d_67_199)">
-          <path d="M98 2L8.5 9L6 25L93 36L98 2Z" fill={shapeFill} />
-          <path
-            d="M98 2L8.5 9L6 25L93 36L98 2Z"
-            stroke="white"
-            stroke-width="2"
-          />
+          <Link to={onClickUrl}>
+            <path d="M98 2L8.5 9L6 25L93 36L98 2Z" fill={shapeFill} />
+            <path
+              d="M98 2L8.5 9L6 25L93 36L98 2Z"
+              stroke="white"
+              stroke-width="2"
+            />
+          </Link>
+
         </g>
         <defs>
           <filter

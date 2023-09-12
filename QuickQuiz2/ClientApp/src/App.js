@@ -10,6 +10,7 @@ import ResultsPage from "./pages/Results/ResultsPage";
 import SelectDifficultyPage from "./pages/SelectDifficulty/SelectDifficultyPage";
 import NotFoundPage from "./pages/NotFound/NotFoundPage";
 
+
 function App() {
   return (
     <div>

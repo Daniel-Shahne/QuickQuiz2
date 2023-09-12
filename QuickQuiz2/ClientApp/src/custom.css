@@ -1,8 +1,12 @@
 /* Provide sufficient contrast against white background */
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
 * {
   font-family: "Comic Sans ms", sans-serif;
-}
 
+}
+h1,h2,h3{
+  font-family: "Architects Daughter", sans-serif;
+}
 a {
   color: #0366d6;
 }

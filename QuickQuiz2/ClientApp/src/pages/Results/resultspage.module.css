@@ -1,0 +1,101 @@
+.resultsBGContainer {
+  background-image: url("./resultsPageBG.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+
+.resultsFlexContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.flexrow1 {
+  position: relative;
+  margin-top: 12rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.resultsPageImage {
+  height: 30rem;
+}
+
+.leftContainer {
+  position: relative;
+}
+
+.leftContainer > div {
+  position: absolute;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  top: 40%;
+  left: 50%;
+}
+
+.leftContainer > div {
+  position: absolute;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  top: 40%;
+  left: 50%;
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white,
+    1px 1px 0 white, -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white,
+    2px 2px 0 white;
+  color: #00ac87;
+}
+
+.leftContainer > div > h1 {
+  font-size: 80px;
+  font-weight: bold;
+}
+
+.leftContainer > div > h2 {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.rightContainer {
+  position: relative;
+}
+
+.rightContainer > div {
+  position: absolute;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  top: 40%;
+  left: 50%;
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white,
+    1px 1px 0 white, -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white,
+    2px 2px 0 white;
+
+  color: #00ac87;
+}
+
+.rightContainer > div > h1 {
+  font-size: 80px;
+  font-weight: bold;
+}
+
+.rightContainer > div > h2 {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.btnContainer {
+  margin-top: -6rem;
+  display: flex;
+  justify-content: center;
+}
+
+.backarrow {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}

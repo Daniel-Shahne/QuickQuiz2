@@ -1,0 +1,29 @@
+.backgroundContainer {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    background-image: url('./gradient1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container > h1 {
+    text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 2px 0 white, -3px -3px 0 white, 3px -3px 0 white, -3px 3px 0 white, 3px 3px 0 white;
+    font-size: 60px;
+    color: #00AC87;
+    margin-bottom: 6rem;
+}
+
+.container {
+    height: 100%;
+    margin-top: 10rem;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.arrowContainer {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+}
