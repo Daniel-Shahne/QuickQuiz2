@@ -19,22 +19,21 @@ function HowToPlayPage() {
           <img src={wonkyShape} alt="" />
           <div className={howToPlayStyle.textOverlay}>
             <p>
-              An image or description of a [category] will be displayed in the
-              middle of the screen. Below it possible (solutions?) will be
-              cycling.
+              An image or description of an animal will be displayed in the
+              middle of the screen. Below, a set of answers will be displayed one at a time.
             </p>
             <p>
-              When the correct (solutions?) is shown, press your button faster
+              When the correct answer is shown, press your button faster
               than your opponent to score a point!
             </p>
             <p>
               If you press your button at the wrong answer however your button
-              is locked for (duration), giving your opponent a much easier time
+              will be locked for a short period of time, giving your opponent a much easier time
               to score points. So be careful!
             </p>
             <p>
               The game can be paused with the button in the top right corner, or
-              you can return to the difficulty screen with the button in the top
+              you can return to the previous screen with the button in the top
               left corner.
             </p>
           </div>
