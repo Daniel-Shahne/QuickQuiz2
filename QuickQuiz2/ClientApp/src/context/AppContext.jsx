@@ -5,7 +5,7 @@ export const AppContext = createContext();
 
 export function AppContextProvider({ children }) {
   const [allQuestions, setAllQuestions] = useState(null);
-  const [difficulty, setDifficulty] = useState("easy");
+  const [difficulty, setDifficulty] = useState();
 
   useEffect(() => {
     // Fetch all questions when the component mounts

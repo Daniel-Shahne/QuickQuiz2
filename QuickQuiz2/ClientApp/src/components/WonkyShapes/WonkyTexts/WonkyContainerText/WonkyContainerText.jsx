@@ -8,6 +8,7 @@ import WonkyShapeChar2 from "../shapesForWonkyTexts/WonkyShapeChar2";
 import wonkyCss from "./wonkycontainertext.module.css";
 
 function WonkyContainerText({
+  onClickFunc,
   onClickUrl,
   shapeId,
   text,
@@ -44,6 +45,7 @@ function WonkyContainerText({
             {text}
           </p>
           <ShapeComponent
+            onClickFunc={onClickFunc}
             onClickUrl={onClickUrl}
             shapeFill={shapeFill}
             sizeMultiplier={sizeMultiplier}

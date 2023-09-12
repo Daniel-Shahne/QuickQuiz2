@@ -20,8 +20,8 @@ function ResultsPage() {
         <div className={resultsPageStyle.leftContainer}>
           <div>
             <h1>Player 1</h1>
-            {/* <h2>`Score: ${state.player1Points}`</h2> */}
-            <h2>Score: 6</h2>
+            <h2>Score: {state.player1Points}</h2>
+            {/* <h2>Score: 6</h2> */}
           </div>
           <img
             className={resultsPageStyle.resultsPageImage}
@@ -32,8 +32,8 @@ function ResultsPage() {
         <div className={resultsPageStyle.rightContainer}>
           <div>
             <h1>Player 2</h1>
-            {/* <h2>`Score: ${state.player2Points}`</h2> */}
-            <h2>Score: 4</h2>
+            <h2>Score: {state.player2Points}</h2>
+            {/* <h2>Score: 4</h2> */}
           </div>
 
           <img
