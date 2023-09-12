@@ -11,57 +11,59 @@ function WonkyShapeChar2({ shapeFill, sizeMultiplier }) {
   );
 
   return (
-    <span>
-      <svg
-        width={calculatedWidth}
-        height={calculatedHeight}
-        viewBox="0 0 48 55"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <g filter="url(#filter0_d_159_57)">
-          <path d="M43 1L5 15.3407V46L43 21.2747V1Z" fill={shapeFill} />
-          <path d="M43 1L5 15.3407V46L43 21.2747V1Z" stroke="#F5F5F5" />
-        </g>
-        <defs>
-          <filter
-            id="filter0_d_159_57"
-            x="0.5"
-            y="0.276855"
-            width="47"
-            height="54.645"
-            filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
-          >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
-            <feColorMatrix
-              in="SourceAlpha"
-              type="matrix"
-              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-              result="hardAlpha"
-            />
-            <feOffset dy="4" />
-            <feGaussianBlur stdDeviation="2" />
-            <feComposite in2="hardAlpha" operator="out" />
-            <feColorMatrix
-              type="matrix"
-              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-            />
-            <feBlend
-              mode="normal"
-              in2="BackgroundImageFix"
-              result="effect1_dropShadow_159_57"
-            />
-            <feBlend
-              mode="normal"
-              in="SourceGraphic"
-              in2="effect1_dropShadow_159_57"
-              result="shape"
-            />
-          </filter>
-        </defs>
-      </svg>
-    </span>
+    <svg
+      width={calculatedWidth}
+      height={calculatedHeight}
+      viewBox="0 0 48 57"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g filter="url(#filter0_d_79_173)">
+        <path d="M43 2L5 16.3407V47L43 22.2747V2Z" fill={shapeFill} />
+        <path
+          d="M43 2L5 16.3407V47L43 22.2747V2Z"
+          stroke="#F5F5F5"
+          stroke-width="2"
+        />
+      </g>
+      <defs>
+        <filter
+          id="filter0_d_79_173"
+          x="0"
+          y="0.553711"
+          width="48"
+          height="56.29"
+          filterUnits="userSpaceOnUse"
+          color-interpolation-filters="sRGB"
+        >
+          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feColorMatrix
+            in="SourceAlpha"
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+            result="hardAlpha"
+          />
+          <feOffset dy="4" />
+          <feGaussianBlur stdDeviation="2" />
+          <feComposite in2="hardAlpha" operator="out" />
+          <feColorMatrix
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+          />
+          <feBlend
+            mode="normal"
+            in2="BackgroundImageFix"
+            result="effect1_dropShadow_79_173"
+          />
+          <feBlend
+            mode="normal"
+            in="SourceGraphic"
+            in2="effect1_dropShadow_79_173"
+            result="shape"
+          />
+        </filter>
+      </defs>
+    </svg>
   );
 }
 
