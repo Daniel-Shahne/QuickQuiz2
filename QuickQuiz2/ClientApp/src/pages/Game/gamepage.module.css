@@ -1,3 +1,9 @@
+.backarrow {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}
+
 #bgContainer {
   background-image: url("./playPageBG.png");
   background-repeat: no-repeat;

@@ -8,6 +8,7 @@ import gamePageStyle from "./gamepage.module.css";
 // Custom component imports
 import CategoryItemCircle from "../../components/circles/CategoryItemCircle";
 import WonkyContainerText from "../../components/WonkyShapes/WonkyTexts/WonkyContainerText/WonkyContainerText";
+import BackArrow from "../../components/BackArrow/BackArrow";
 // Image imports
 import unpauseBtnImage from "./unpauseBtn.png";
 
@@ -23,6 +24,7 @@ function GamePage() {
 
   // Get the context variables
   const { allQuestions, difficulty } = useContext(AppContext);
+
   /** Due to allQuestions being instantiated as null, the values of
    * the index variables can only be set after the data has been fetched
    */
@@ -61,7 +63,8 @@ function GamePage() {
 
   // Holds how many answers have cycled since the last correct one
   const [cycledAnswersSinceCorrect, setCycledAnswersSinceCorrect] = useState(0);
-  // Saves how many RANDOM cycles should go until the correct answer is shown
+
+  // Saves how many RANDOM cycles should go until the next correct answer is shown
   // Is randomly set after each time the correct answer has been shown
   const [randomCycleAmount, setRandomCycleAmount] = useState(
     Math.floor(Math.random() * randomCyclesUpperLimit) + 1
@@ -101,8 +104,6 @@ function GamePage() {
    * has been reached
    */
   useEffect(() => {
-    // If questionlimit is reached, go to results
-    console.log(takenQuestionIndexes);
     if (takenQuestionIndexes.length >= questionLimit) {
       navigator("/results", { state: stateRef.current.playerPoints });
       return;
@@ -133,8 +134,8 @@ function GamePage() {
    * displayed answer either:
    *
    * The correct answer if cycles since last correct answer shown
-   * exceeds limit determined randomly. Will also set a new random
-   * cycle amount (for cycles until correct answer displays) if so
+   * equals limit determined randomly. Will also set a new random
+   * cycle amount (for cycles until next correct answer displays)
    *
    * OR
    *
@@ -158,7 +159,7 @@ function GamePage() {
             () => Math.floor(Math.random() * randomCyclesUpperLimit) + 1
           );
         }
-        // Displays wrong question answer
+        // Display wrong question answer
         else {
           // Rerolls nextAnswerIndex if it happens to be the active index
           while (nextAnswerIndex === activeQuestionIndex) {
@@ -182,7 +183,7 @@ function GamePage() {
 
   /**
    * Temporarily disables a key for a given time
-   * @param {string} key A character representing the keyboard key, like "a"
+   * @param {string} key A character representing the keyboard key, either "a" or "l"
    * @param {*} timeout The timout in milliseconds
    */
   function temporarilyDisableKeyPress(key, timeout) {
@@ -222,7 +223,7 @@ function GamePage() {
    * Stores the currently active question index in the array saving
    * all the indexes of taken questions
    */
-  function addTakenQuestion() {
+  function addActiveQuestionToTakenQuestions() {
     setTakenQuestionIndexes((prevState) => {
       return [...prevState, stateRef.current.activeQuestionIndex];
     });
@@ -234,37 +235,40 @@ function GamePage() {
    * @param {*} event Event arguments passed by the parent caller method as this method isnt intended to be called outside an event listener
    */
   function handleKeyPress(event) {
+    // If the answer actually is for the current question
     if (
       stateRef.current.activeAnswerIndex ===
       stateRef.current.activeQuestionIndex
     ) {
+      // Switch to determine which player to give points too
+      // Inner if clause checks if this player is allowed to receive points
+      // by checking for their button being enabled and game not being paused
       switch (event.code) {
         case "KeyA":
           if (stateRef.current.keyAEnabled && !stateRef.current.gameIsPaused) {
             temporarilyDisableKeyPress("a", timeoutOnCorrectAnswer);
             incrementPlayersPoints("player1Points");
-            addTakenQuestion();
+            addActiveQuestionToTakenQuestions();
             setNextRandomQuestionIndex();
-          } else {
-            // TODO: Display feedback if attempting to score
-            // while players button is disabled
-            console.log("Key A disabled");
+            setKeyAEnabled(() => true);
+            setKeyLEnabled(() => true);
           }
           break;
         case "KeyL":
           if (stateRef.current.keyLEnabled && !stateRef.current.gameIsPaused) {
             temporarilyDisableKeyPress("l", timeoutOnCorrectAnswer);
             incrementPlayersPoints("player2Points");
-            addTakenQuestion();
+            addActiveQuestionToTakenQuestions();
             setNextRandomQuestionIndex();
-          } else {
-            // TODO: Display feedback if attempting to score
-            // while players button is disabled
-            console.log("Key L disabled");
+            setKeyAEnabled(() => true);
+            setKeyLEnabled(() => true);
           }
           break;
       }
-    } else {
+    }
+    // If the answer is incorrect to the current question
+    else {
+      // Switch to determine which player to penalize
       switch (event.code) {
         case "KeyA":
           temporarilyDisableKeyPress("a", timeoutOnWrongAnswer);
@@ -277,6 +281,7 @@ function GamePage() {
       }
     }
   }
+
   // Add and remove the event listener using useEffect
   useEffect(() => {
     window.addEventListener("keydown", handleKeyPress);
@@ -370,8 +375,7 @@ function GamePage() {
                     className={gamePageStyle.greenInnerWhiteOuterText}
                     style={{ fontSize: "60px" }}
                   >
-                    Whats this {allQuestions[activeQuestionIndex].category}{" "}
-                    name?
+                    Which animal is this?
                   </h2>
                   {!gameIsPaused ? (
                     <h3
@@ -387,6 +391,9 @@ function GamePage() {
                   )}
                 </div>
               </div>
+              <span className={gamePageStyle.backarrow}>
+                <BackArrow onClickUrl="/howtoplay" />
+              </span>
               {!gameIsPaused ? (
                 <span
                   id={gamePageStyle.paus}
