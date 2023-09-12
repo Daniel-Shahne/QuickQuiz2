@@ -148,3 +148,11 @@
   grid-column: 3/3;
   grid-row: 1/2;
 }
+
+#paus:hover {
+  filter: brightness(0.9);
+}
+
+#unpauseBtnImage:hover {
+  filter: brightness(0.9);
+}
