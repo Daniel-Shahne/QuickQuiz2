@@ -361,16 +361,23 @@ function GamePage() {
                     <h4
                       className={gamePageStyle.greenInnerWhiteOuterText}
                       id={gamePageStyle.hardDiffDesc}
+                      style={{ fontSize: "30px" }}
                     >
                       {allQuestions[activeQuestionIndex].hardDiffDesc}
                     </h4>
                   ) : null}
-                  <h2 className={gamePageStyle.greenInnerWhiteOuterText}>
+                  <h2
+                    className={gamePageStyle.greenInnerWhiteOuterText}
+                    style={{ fontSize: "60px" }}
+                  >
                     Whats this {allQuestions[activeQuestionIndex].category}{" "}
                     name?
                   </h2>
                   {!gameIsPaused ? (
-                    <h3 className={gamePageStyle.greenInnerWhiteOuterText}>
+                    <h3
+                      className={gamePageStyle.greenInnerWhiteOuterText}
+                      style={{ fontSize: "50px" }}
+                    >
                       {allQuestions[activeAnswerIndex].answer}
                     </h3>
                   ) : (
