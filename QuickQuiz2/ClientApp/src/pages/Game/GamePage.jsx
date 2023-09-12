@@ -310,6 +310,7 @@ function GamePage() {
             <img
               src={unpauseBtnImage}
               alt="Unpause button"
+              id={gamePageStyle.unpauseBtnImage}
               onClick={() => setGameIsPaused(() => false)}
             />
           </div>
