@@ -8,6 +8,8 @@ import gamePageStyle from "./gamepage.module.css";
 // Custom component imports
 import CategoryItemCircle from "../../components/circles/CategoryItemCircle";
 import WonkyContainerText from "../../components/WonkyShapes/WonkyTexts/WonkyContainerText/WonkyContainerText";
+// Image imports
+import unpauseBtnImage from "./unpauseBtn.png";
 
 function GamePage() {
   // Hard coded values for different timing
@@ -298,7 +300,11 @@ function GamePage() {
             >
               Press the button below to unpause
             </div>
-            <div id={gamePageStyle.unpauseDiv}></div>
+            <img
+              src={unpauseBtnImage}
+              alt="Unpause button"
+              onClick={() => setGameIsPaused(() => false)}
+            />
           </div>
         </div>
       ) : null}
