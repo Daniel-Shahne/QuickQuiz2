@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import wonkyShapeStyle from "./wonkyshape.module.css";
 
 function WonkyShapeText1({ shapeFill, sizeMultiplier, onClickFunc ,onClickUrl }) {
   let sizeMultiplierNum = parseFloat(sizeMultiplier);
@@ -11,6 +12,11 @@ function WonkyShapeText1({ shapeFill, sizeMultiplier, onClickFunc ,onClickUrl })
     57 * sizeMultiplierNum
   );
 
+
+  function handleClick() {
+    console.log("clicked!");
+  }
+  
   return (
     <span>
       <svg
@@ -21,7 +27,7 @@ function WonkyShapeText1({ shapeFill, sizeMultiplier, onClickFunc ,onClickUrl })
         xmlns="http://www.w3.org/2000/svg"
       >
         <g filter="url(#filter0_d_77_416)">
-          <Link onClick={onClickFunc} to={onClickUrl}>
+          <Link to={onClickUrl} onClick={onClickFunc} className={wonkyShapeStyle.wonkyLink}>
             <path d="M96 2L5 16.5V47.5L96 22.5V2Z" fill={shapeFill} />
             <path
               d="M96 2L5 16.5V47.5L96 22.5V2Z"
@@ -29,7 +35,6 @@ function WonkyShapeText1({ shapeFill, sizeMultiplier, onClickFunc ,onClickUrl })
               stroke-width="2"
             />
           </Link>
-         
         </g>
         <defs>
           <filter
