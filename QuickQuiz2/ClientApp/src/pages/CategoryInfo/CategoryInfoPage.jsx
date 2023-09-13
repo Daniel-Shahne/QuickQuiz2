@@ -6,10 +6,21 @@ import { AppContext } from "../../context/AppContext";
 import { useParams } from "react-router-dom";
 import arrowLeft from "./arrowLeft.png"
 import arrowRight from "./arrowRight.png"
-function CategoryInfoPage() {
-  let { index } = useParams();
+import React, { useState } from 'react';
 
+
+function CategoryInfoPage() {
+  const { index } = useParams();
   const { allQuestions } = useContext(AppContext);
+
+  const [animalIndex, setAnimalIndex] = useState(index);
+
+  const nextAnimal = () => {
+    setCurrentIndex(currentIndex + 1);
+  };
+
+  const displayAnimalDetails = () => {
+    const animal = animals[currentIndex];
 
   function nextIndex(){
     index++;
@@ -26,7 +37,7 @@ function CategoryInfoPage() {
         {allQuestions ? (
             <div className={CategoryInfoStyle.imgContainer}>
           <CategoryItemCircle
-            question={allQuestions[index]}
+            question={allQuestions[animalIndex]}
             width="300px"
             isClickable={false}
           />
