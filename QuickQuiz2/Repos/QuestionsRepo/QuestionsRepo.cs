@@ -15,39 +15,37 @@ namespace QuickQuiz2.Repos.QuestionsRepo
 
         public async Task<List<QuestionModel>?> GetAllQuestions()
         {
-            return await context.Questions.ToListAsync();
+
+            var allQuestions = await context.Questions.ToListAsync();
+
+            return allQuestions ?? throw new NoEntriesReceivedException("Failed to retrieve all questions from database");
         }
 
         public async Task<List<QuestionModel>?> GetAmountOfQuestions(int amount)
         {
+
             //check if there are any questions
             List<QuestionModel>? allQuestions = await GetAllQuestions();
 
-            if (allQuestions == null)
-            {
-                //TODO - error handling
-                return null;
-            }
-
             //check amount of questions
-            int amountOfQuestions = allQuestions.Count;
 
-            if (amount > amountOfQuestions)
+            if (amount > allQuestions?.Count || amount < 1)
             {
-                //TODO - error handling
-                return null;
+                throw new InvalidQuestionAmountException("Received invalid amount for questions to retrieve from database");
             }
 
             Random random = new();
 
             //shuffle the list and take the first {amount} of elements
-            return allQuestions.OrderBy(x => random.Next()).Take(amount).ToList();
+            return allQuestions?.OrderBy(x => random.Next()).Take(amount).ToList();
 
         }
 
         public async Task<QuestionModel?> GetQuestionById(int questionId)
         {
-            return await context.Questions.FirstOrDefaultAsync(q => q.Id == questionId);
+            var question = await context.Questions.FirstOrDefaultAsync(q => q.Id == questionId);
+
+            return question ?? throw new NoEntriesReceivedException("Failed to retrieve question with provided id");
         }
     }
 }
