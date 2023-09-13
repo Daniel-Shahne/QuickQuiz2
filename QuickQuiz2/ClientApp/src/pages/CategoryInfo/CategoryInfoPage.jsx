@@ -15,14 +15,19 @@ function CategoryInfoPage() {
       <div className={CategoryInfoStyle.backarrow}>
         <BackArrow onClickUrl="/home" />
       </div>
-
       <div className={CategoryInfoStyle.playItemContainer}>
         {allQuestions ? (
+            <div className={CategoryInfoStyle.imgContainer}>
           <CategoryItemCircle
             question={allQuestions[index]}
-            width="400px"
+            width="300px"
             isClickable={false}
           />
+          <h1>{allQuestions[index].answer}</h1>
+          <div className={CategoryInfoStyle.descriptionContainer}>
+          <p>{allQuestions[index].description}</p>
+          </div>
+          </div>
         ) : null}
       </div>
     </div>

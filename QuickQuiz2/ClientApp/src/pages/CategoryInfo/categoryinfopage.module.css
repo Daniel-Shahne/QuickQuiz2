@@ -12,15 +12,36 @@
   align-items: center;
 }
 
+
 .playItemContainer {
   background-image: url("./playItemContainerBG.png");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: contain;
-  /* margin: 50px 70px; */
+  width: 100%;
+   height: 100%;
   text-align: center;
-  /* grid-column: 2 / 3;
-  grid-row: 1 / -1; */
+  
+ 
+}
+
+.imgContainer{
+    display: flex;
+    transform: translate(0%, 50%);
+    justify-content:center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -150px;
+}
+
+
+.descriptionContainer{
+    max-width: 30%; /* Adjust this value based on your needs */
+    margin: auto; /* This ensures the div is centered horizontally */
+}
+
+.descriptionContainer > p {
+    margin: 0; /* Reset margin to ensure centering is accurate */
+    text-align: center; /* Center the text inside <p> */
 }
 
 .backarrow {
@@ -29,5 +50,3 @@
   left: 2rem;
 }
 
-.playItemContainer {
-}
