@@ -1,0 +1,28 @@
+
+.backgroundContainer {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    background-image: url('./gradient1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-y: scroll;
+}
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: 320px;
+    gap: 10px;
+}
+
+.gridItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flexItem {
+    width: 280px;
+    height: 280px;
+}
