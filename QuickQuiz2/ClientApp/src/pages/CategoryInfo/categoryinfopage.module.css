@@ -1,24 +1,33 @@
 .bgContainer {
-    background-image: url("./CategoryInfoPageBG.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    display: flex;
-  }
+  background-image: url("./CategoryInfoPageBG.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-  .backarrow{
-    position: absolute;
-    top: 2rem;
-    left: 2rem;
-  }
+.playItemContainer {
+  background-image: url("./playItemContainerBG.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  /* margin: 50px 70px; */
+  text-align: center;
+  /* grid-column: 2 / 3;
+  grid-row: 1 / -1; */
+}
 
-  .playItemContainer {
-    background-image: url("./playItemContainerBG.png");
-    background-repeat: no-repeat;
-    background-position: center;
-      
-  }
-  
+.backarrow {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}
+
+.playItemContainer {
+}

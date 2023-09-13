@@ -22,7 +22,7 @@ function App() {
           <Route path="/game" element={<GamePage />} />
           <Route path="/howtoplay" element={<HowToPlayPage />} />
           <Route path="/results" element={<ResultsPage />} />
-          <Route path="/categoryinfo" element={<CategoryInfoPage />} />
+          <Route path="/categoryinfo/:index" element={<CategoryInfoPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </AppContextProvider>
