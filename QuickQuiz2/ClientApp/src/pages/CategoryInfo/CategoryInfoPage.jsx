@@ -1,55 +1,81 @@
 import CategoryInfoStyle from "./categoryinfopage.module.css";
-import React, { useContext, useEffect, useState, useRef } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import BackArrow from "../../components/BackArrow/BackArrow";
 import CategoryItemCircle from "../../components/circles/CategoryItemCircle";
 import { AppContext } from "../../context/AppContext";
 import { useParams } from "react-router-dom";
-import arrowLeft from "./arrowLeft.png"
-import arrowRight from "./arrowRight.png"
-import React, { useState } from 'react';
-
+import arrowLeft from "./arrowLeft.png";
+import arrowRight from "./arrowRight.png";
 
 function CategoryInfoPage() {
-  const { index } = useParams();
+  let { index } = useParams();
+
   const { allQuestions } = useContext(AppContext);
 
-  const [animalIndex, setAnimalIndex] = useState(index);
+  // Define a state variable to keep track of the current index
+  const [currentIndex, setCurrentIndex] = useState(parseInt(index));
 
-  const nextAnimal = () => {
-    setCurrentIndex(currentIndex + 1);
-  };
-
-  const displayAnimalDetails = () => {
-    const animal = animals[currentIndex];
-
-  function nextIndex(){
-    index++;
-    console.log(index);
+  function nextIndex() {
+    if (currentIndex < allQuestions.length - 1) {
+      setCurrentIndex((prevIndex) => prevIndex + 1);
+    }
   }
+
+  function prevIndex() {
+    if (currentIndex > 0) {
+      setCurrentIndex((prevIndex) => prevIndex - 1);
+    }
+  }
+
+  useEffect(() => {
+    if (allQuestions) {
+      setCurrentIndex((prevIndex) =>
+        prevIndex >= allQuestions.length - 1 ? prevIndex : prevIndex + 1
+      );
+    }
+  }, [allQuestions]);
+
+  const isAtBeginning = currentIndex === 0;
+  const isAtEnd = currentIndex === allQuestions.length - 1;
 
   return (
     <div className={CategoryInfoStyle.bgContainer}>
       <div className={CategoryInfoStyle.backarrow}>
         <BackArrow onClickUrl="/home" />
       </div>
-      <div><img src={arrowLeft}/></div>
-      <div className={CategoryInfoStyle.playItemContainer}>
-        {allQuestions ? (
-            <div className={CategoryInfoStyle.imgContainer}>
-          <CategoryItemCircle
-            question={allQuestions[animalIndex]}
-            width="300px"
-            isClickable={false}
-          />
-          <h1>{allQuestions[index].answer}</h1>
-          <div className={CategoryInfoStyle.descriptionContainer}>
-          <p>{allQuestions[index].description}</p>
-          </div>
-          </div>
-          
-        ) : null}
+      <div>
+        <img
+          src={arrowLeft}
+          onClick={prevIndex}
+          className={isAtBeginning ? CategoryInfoStyle.disabled : ""}
+          alt="Previous"
+        />
       </div>
-      <div><img src={arrowRight} onClick={nextIndex}/></div>
+      <div className={CategoryInfoStyle.playItemContainer}>
+        {allQuestions && allQuestions.length > 0 ? (
+          <div className={CategoryInfoStyle.imgContainer}>
+            <CategoryItemCircle
+              question={allQuestions[currentIndex]}
+              width="300px"
+              isClickable={false}
+            />
+            <h1>{allQuestions[currentIndex].answer}</h1>
+            <div className={CategoryInfoStyle.descriptionContainer}>
+              <p>{allQuestions[currentIndex].description}</p>
+            </div>
+          </div>
+        ) : (
+          <p>No questions available.</p>
+        )}
+      </div>
+      <div>
+        <img
+          src={arrowRight}
+          onClick={nextIndex}
+          className={isAtEnd ? CategoryInfoStyle.disabled : ""}
+          alt="Next"
+        />
+      </div>
     </div>
   );
 }
