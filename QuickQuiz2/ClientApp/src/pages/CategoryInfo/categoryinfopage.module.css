@@ -1,0 +1,24 @@
+.bgContainer {
+    background-image: url("./CategoryInfoPageBG.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    display: flex;
+  }
+
+  .backarrow{
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+  }
+
+  .playItemContainer {
+    background-image: url("./playItemContainerBG.png");
+    background-repeat: no-repeat;
+    background-position: center;
+      
+  }
+  
