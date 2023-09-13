@@ -18,9 +18,10 @@ function GamePage() {
   const timeoutOnWrongAnswer = 3000;
   const randomCyclesUpperLimit = 8;
   const timeForEachAnswer = 1000;
-  const questionLimit = 3;
-  const buttonEnabledFill = "#00AC87";
-  const buttonDisabledFill = "#853AC8";
+  const questionLimit = 5;
+  const buttonEnabledFill = "#853AC8";
+  const buttonDisabledFill = "#ED3309";
+  const buttonRightAnswer = "#00AC87";
 
   // Get the context variables
   const { allQuestions, difficulty } = useContext(AppContext);
@@ -53,6 +54,13 @@ function GamePage() {
     player1Points: 0,
     player2Points: 0,
   });
+
+  // Separate state variables for Player 1 and Player 2 shaking
+  const [isPlayer1Shaking, setIsPlayer1Shaking] = useState(false);
+  const [isPlayer2Shaking, setIsPlayer2Shaking] = useState(false);
+
+  const [isPlayer1right, setisPlayer1right] = useState(false);
+  const [isPlayer2right, setisPlayer2right] = useState(false);
 
   // State variables determining key pressing enabled or not
   const [keyAEnabled, setKeyAEnabled] = useState(true);
@@ -212,6 +220,17 @@ function GamePage() {
    * @param {*} playerProperty Either "player1Points" or "player2Points", the properties of the object state variable
    */
   function incrementPlayersPoints(playerProperty) {
+    if (playerProperty === "player1Points") {
+      setIsPlayer1Shaking(true);
+      setTimeout(() => setIsPlayer1Shaking(false), 1000);
+      setisPlayer1right(true);
+      setTimeout(() => setisPlayer1right(false), 1000);
+    } else if (playerProperty === "player2Points") {
+      setIsPlayer2Shaking(true);
+      setTimeout(() => setIsPlayer2Shaking(false), 1000);
+      setisPlayer2right(true);
+      setTimeout(() => setisPlayer2right(false), 1000);
+    }
     setPlayerPoints((prevstate) => {
       const newState = { ...prevstate };
       newState[playerProperty] += 1;
@@ -249,6 +268,7 @@ function GamePage() {
             temporarilyDisableKeyPress("a", timeoutOnCorrectAnswer);
             incrementPlayersPoints("player1Points");
             addActiveQuestionToTakenQuestions();
+
             setNextRandomQuestionIndex();
             setKeyAEnabled(() => true);
             setKeyLEnabled(() => true);
@@ -327,7 +347,11 @@ function GamePage() {
                   sizeMultiplier="6.0"
                   fontSize="100px"
                   shapeFill={
-                    keyAEnabled ? buttonEnabledFill : buttonDisabledFill
+                    isPlayer1right
+                      ? buttonRightAnswer
+                      : keyAEnabled
+                      ? buttonEnabledFill
+                      : buttonDisabledFill
                   }
                 />
               </span>
@@ -338,19 +362,27 @@ function GamePage() {
                   sizeMultiplier="6.0"
                   fontSize="100px"
                   shapeFill={
-                    keyLEnabled ? buttonEnabledFill : buttonDisabledFill
+                    isPlayer2right
+                      ? buttonRightAnswer
+                      : keyLEnabled
+                      ? buttonEnabledFill
+                      : buttonDisabledFill
                   }
                 />
               </span>
               <h2
                 id={gamePageStyle.player1}
-                className={gamePageStyle.greenInnerWhiteOuterText}
+                className={`${gamePageStyle.greenInnerWhiteOuterText} ${
+                  isPlayer1Shaking ? gamePageStyle.shake : ""
+                }`}
               >
                 Player 1 points: {playerPoints.player1Points}
               </h2>
               <h2
                 id={gamePageStyle.player2}
-                className={gamePageStyle.greenInnerWhiteOuterText}
+                className={`${gamePageStyle.greenInnerWhiteOuterText} ${
+                  isPlayer2Shaking ? gamePageStyle.shake : ""
+                }`}
               >
                 Player 2 points: {playerPoints.player2Points}
               </h2>
