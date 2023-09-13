@@ -11,7 +11,6 @@ import SelectDifficultyPage from "./pages/SelectDifficulty/SelectDifficultyPage"
 import SelectInfoPage from "./pages/SelectInfo/SelectInfoPage";
 import NotFoundPage from "./pages/NotFound/NotFoundPage";
 
-
 function App() {
   return (
     <div>
