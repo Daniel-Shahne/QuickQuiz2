@@ -11,6 +11,9 @@ import SelectDifficultyPage from "./pages/SelectDifficulty/SelectDifficultyPage"
 import SelectInfoPage from "./pages/SelectInfo/SelectInfoPage";
 import NotFoundPage from "./pages/NotFound/NotFoundPage";
 
+import CategoryInfoPage from "./pages/CategoryInfo/CategoryInfoPage";
+
+
 function App() {
   return (
     <div>
@@ -22,7 +25,11 @@ function App() {
           <Route path="/game" element={<GamePage />} />
           <Route path="/howtoplay" element={<HowToPlayPage />} />
           <Route path="/results" element={<ResultsPage />} />
+
+          <Route path="/categoryinfo/:index" element={<CategoryInfoPage />} />
+
           <Route path="/selectinfo" element={<SelectInfoPage/>}/>
+
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </AppContextProvider>
