@@ -14,30 +14,6 @@ function CategoryInfoPage() {
 
   const { allQuestions } = useContext(AppContext);
 
-  // const [currentIndex, setCurrentIndex] = useState(parseInt(index));
-
-  // function nextIndex() {
-  //   if (allQuestions !== null && currentIndex < allQuestions.length - 1) {
-  //     setCurrentIndex((prevIndex) => prevIndex + 1);
-  //   }
-  // }
-
-  // function prevIndex() {
-  //   if (allQuestions !== null && currentIndex > 0) {
-  //     setCurrentIndex((prevIndex) => prevIndex - 1);
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   if (allQuestions && allQuestions.length > 0) {
-  //     setCurrentIndex((prevIndex) =>
-  //       prevIndex >= allQuestions.length - 1 ? prevIndex : prevIndex + 1
-  //     );
-  //   }
-  // }, [allQuestions]);
-
-  // const isAtBeginning = currentIndex === 0;
-  // const isAtEnd = allQuestions && currentIndex === allQuestions.length - 1;
 
   return (
     <div className={CategoryInfoStyle.bgContainer}>
@@ -50,6 +26,7 @@ function CategoryInfoPage() {
           className={indexNum === 0 ? CategoryInfoStyle.disabled : ""}
         >
           <img
+          className={CategoryInfoStyle.arrowLeft}
             src={arrowLeft}
             alt="Previous"
           />
@@ -58,7 +35,7 @@ function CategoryInfoPage() {
       <div className={CategoryInfoStyle.playItemContainer}>
         {allQuestions && allQuestions.length > 0 ? (
           <div className={CategoryInfoStyle.imgContainer}>
-            <CategoryItemCircle
+            <CategoryItemCircle 
               question={allQuestions[indexNum]}
               width="300px"
               isClickable={false}
@@ -82,7 +59,7 @@ function CategoryInfoPage() {
                 : ""
             }
           >
-            <img src={arrowRight} alt="Next" />
+            <img className={CategoryInfoStyle.arrowRight} src={arrowRight} alt="Next" />
           </Link>
         ) : null}
       </div>
