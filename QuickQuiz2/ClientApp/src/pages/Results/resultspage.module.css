@@ -45,10 +45,6 @@
   transform: translate(-50%, -50%);
   top: 40%;
   left: 50%;
-  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white,
-    1px 1px 0 white, -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white,
-    2px 2px 0 white;
-  color: #00ac87;
 }
 
 .leftContainer > div > h1 {
@@ -71,11 +67,6 @@
   transform: translate(-50%, -50%);
   top: 40%;
   left: 50%;
-  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white,
-    1px 1px 0 white, -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white,
-    2px 2px 0 white;
-
-  color: #00ac87;
 }
 
 .rightContainer > div > h1 {
@@ -92,10 +83,4 @@
   margin-top: -6rem;
   display: flex;
   justify-content: center;
-}
-
-.backarrow {
-  position: absolute;
-  top: 2rem;
-  left: 2rem;
 }

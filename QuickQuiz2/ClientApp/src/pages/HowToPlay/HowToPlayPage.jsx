@@ -8,7 +8,7 @@ import BackArrow from "../../components/BackArrow/BackArrow";
 function HowToPlayPage() {
   return (
     <div className={howToPlayStyle.howToPlayContainer}>
-      <div className={howToPlayStyle.backarrow}>
+      <div className={"backarrow"}>
         <BackArrow onClickUrl="/selectdifficulty" />
       </div>
 

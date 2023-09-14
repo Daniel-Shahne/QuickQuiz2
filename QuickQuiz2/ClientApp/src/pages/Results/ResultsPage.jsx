@@ -21,15 +21,17 @@ function ResultsPage() {
     <div>
       {state ? (
         <div className={resultsPageStyle.resultsBGContainer}>
-          <span className={resultsPageStyle.backarrow}>
+          <span className={"backarrow"}>
             <BackArrow onClickUrl="/home" />
           </span>
           <div className={resultsPageStyle.resultsFlexContainer}></div>
           <div className={resultsPageStyle.flexrow1}>
             <div className={resultsPageStyle.leftContainer}>
-              <div>
+              <div className="greenInnerWhiteOuterTextBuff">
                 <h1>Player 1</h1>
-                <h2>Score: {state.player1Points}</h2>
+                <h2 className="greenInnerWhiteOuterTextSkinny">
+                  Score: {state.player1Points}
+                </h2>
                 {/* <h2>Score: 6</h2> */}
               </div>
               <img
@@ -39,9 +41,11 @@ function ResultsPage() {
               />
             </div>
             <div className={resultsPageStyle.rightContainer}>
-              <div>
+              <div className="greenInnerWhiteOuterTextBuff">
                 <h1>Player 2</h1>
-                <h2>Score: {state.player2Points}</h2>
+                <h2 className="greenInnerWhiteOuterTextSkinny">
+                  Score: {state.player2Points}
+                </h2>
                 {/* <h2>Score: 4</h2> */}
               </div>
               <img
