@@ -22,9 +22,13 @@ function HomePage() {
         </div>
         <div className={homePageStyle.heading}>
           <img src={wonkyHeadingShape} alt="" />
-          <div className={homePageStyle.textOverlay}>
+          <div
+            className={`${homePageStyle.textOverlay} greenInnerWhiteOuterTextBuff`}
+          >
             <h1>QUICK QUIZ</h1>
-            <h3>Think fast, Act faster!</h3>
+            <h3 className="greenInnerWhiteOuterTextSkinny">
+              Think fast, Act faster!
+            </h3>
           </div>
         </div>
         <div className={homePageStyle.slothContainer}>

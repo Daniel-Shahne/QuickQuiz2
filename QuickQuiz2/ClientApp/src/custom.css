@@ -1,10 +1,11 @@
 /* Provide sufficient contrast against white background */
-@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap");
 * {
   font-family: "Comic Sans ms", sans-serif;
-
 }
-h1,h2,h3{
+h1,
+h2,
+h3 {
   font-family: "Architects Daughter", sans-serif;
 }
 a {
@@ -41,4 +42,11 @@ code {
     1px 1px 0 white;
   color: #00ac87;
   font-weight: bold;
+}
+
+.greenInnerWhiteOuterTextBuff {
+  text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white,
+    2px 2px 0 white, -3px -3px 0 white, 3px -3px 0 white, -3px 3px 0 white,
+    3px 3px 0 white;
+  color: #00ac87;
 }
