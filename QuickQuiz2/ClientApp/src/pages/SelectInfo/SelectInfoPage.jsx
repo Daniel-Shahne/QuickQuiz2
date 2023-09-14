@@ -13,10 +13,12 @@ function SelectInfoPage() {
 
   return (
     <div className={selectInfoStyle.backgroundContainer}>
-      <h1 className={selectInfoStyle.textOverlayInfo}>
+      <h1
+        className={`${selectInfoStyle.textOverlayInfo} greenInnerWhiteOuterTextBuff`}
+      >
         Which animal would you like to learn about?
       </h1>
-      <span className={selectInfoStyle.backArrowSelectInfo}>
+      <span className={"backarrow"}>
         <BackArrow onClickUrl="/home" />
       </span>
       {allQuestions ? (
