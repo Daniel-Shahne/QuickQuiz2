@@ -24,7 +24,7 @@ function WonkyShapeChar1({ shapeFill, sizeMultiplier }) {
           <path
             d="M51 2L7.22283 9L6 25L48.5543 36L51 2Z"
             stroke="#F5F5F5"
-            stroke-width="2"
+            strokeWidth="2"
           />
         </g>
         <defs>
@@ -35,9 +35,9 @@ function WonkyShapeChar1({ shapeFill, sizeMultiplier }) {
             width="55.1488"
             height="44.4553"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feColorMatrix
               in="SourceAlpha"
               type="matrix"

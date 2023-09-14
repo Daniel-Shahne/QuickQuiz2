@@ -24,8 +24,8 @@ function SelectInfoPage() {
       {allQuestions ? (
         <div className={selectInfoStyle.gridContainer}>
           {allQuestions.map((q, index) => (
-            <div className={selectInfoStyle.gridItem}>
-              <div className={selectInfoStyle.flexItem}>
+            <div className={selectInfoStyle.gridItem} key={index}>
+              <div className={selectInfoStyle.flexItem} key={index}>
                 <CategoryItemCircle
                   question={q}
                   width="280px"
