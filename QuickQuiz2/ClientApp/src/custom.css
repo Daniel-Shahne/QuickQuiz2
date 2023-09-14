@@ -28,3 +28,17 @@ code {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+
+.backarrow {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}
+
+.greenInnerWhiteOuterTextSkinny {
+  text-shadow: -0.5px -0.5px 0 white, 0.5px -0.5px 0 white, -0.5px 0.5px 0 white,
+    0.5px 0.5px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white,
+    1px 1px 0 white;
+  color: #00ac87;
+  font-weight: bold;
+}

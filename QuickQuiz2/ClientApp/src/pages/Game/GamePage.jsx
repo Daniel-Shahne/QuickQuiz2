@@ -297,13 +297,13 @@ function GamePage() {
           <div id={gamePageStyle.darkPlayPageFlexContainer}>
             <div
               id={gamePageStyle.darkPlayPageText}
-              className={gamePageStyle.greenInnerWhiteOuterText}
+              className={`${gamePageStyle.playPageText} greenInnerWhiteOuterTextSkinny`}
             >
               Game is paused!
             </div>
             <div
               id={gamePageStyle.darkPlayPageExplanation}
-              className={gamePageStyle.greenInnerWhiteOuterText}
+              className={`${gamePageStyle.playPageText} greenInnerWhiteOuterTextSkinny`}
             >
               Press the button below to unpause
             </div>
@@ -392,7 +392,7 @@ function GamePage() {
                   )}
                 </div>
               </div>
-              <span className={gamePageStyle.backarrow}>
+              <span className={"backarrow"}>
                 <BackArrow onClickUrl="/howtoplay" />
               </span>
               {!gameIsPaused ? (
