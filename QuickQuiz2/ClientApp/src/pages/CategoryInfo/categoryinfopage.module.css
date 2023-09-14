@@ -1,0 +1,80 @@
+.bgContainer {
+  background-image: url("./CategoryInfoPageBG.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.playItemContainer {
+  background-image: url("./playItemContainerBG.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+ 
+}
+
+.imgContainer {
+  display: flex;
+  /* transform: translate(0%, 50%); */
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  max-height: 400px;
+  margin-top: 150px;
+
+}
+
+.imgContainer > h1{
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white,
+  1px 1px 0 white, -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white,
+  2px 2px 0 white;
+color: #00ac87;
+font-size: 40px;
+}
+.descriptionContainer > p{
+  font-size: 19px;
+  margin-left: -30px;
+  color: ivory
+}
+
+.descriptionContainer {
+  max-width: 40%; 
+  max-height: 100px;
+}
+
+
+.backarrow {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.2;
+}
+
+.arrowLeft{
+  position: relative;
+  left: 300px;
+}
+.arrowRight{
+  position: relative;
+  right: 300px;
+}
+
+.arrowRight:hover{
+  filter: brightness(0.9);
+}
+
+.arrowLeft:hover{
+  filter: brightness(0.9);
+}
