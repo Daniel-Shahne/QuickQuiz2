@@ -56,10 +56,9 @@ function HomePage() {
               fontSize="30px"
             />
           </div>
-
           <div className={homePageStyle.learnbtn}>
             <WonkyContainerText
-              onClickUrl="/howtoplay"
+              onClickUrl="/selectinfo"
               shapeId="2"
               text="Learn"
               shapeFill="#853AC8"
