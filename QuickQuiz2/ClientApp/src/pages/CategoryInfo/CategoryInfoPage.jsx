@@ -6,36 +6,38 @@ import { AppContext } from "../../context/AppContext";
 import { useParams } from "react-router-dom";
 import arrowLeft from "./arrowLeft.png";
 import arrowRight from "./arrowRight.png";
+import { Link } from "react-router-dom";
 
 function CategoryInfoPage() {
   let { index } = useParams();
+  let indexNum = parseInt(index);
 
   const { allQuestions } = useContext(AppContext);
 
-  const [currentIndex, setCurrentIndex] = useState(parseInt(index));
+  // const [currentIndex, setCurrentIndex] = useState(parseInt(index));
 
-  function nextIndex() {
-    if (allQuestions !== null && currentIndex < allQuestions.length - 1) {
-      setCurrentIndex((prevIndex) => prevIndex + 1);
-    }
-  }
+  // function nextIndex() {
+  //   if (allQuestions !== null && currentIndex < allQuestions.length - 1) {
+  //     setCurrentIndex((prevIndex) => prevIndex + 1);
+  //   }
+  // }
 
-  function prevIndex() {
-    if (allQuestions !== null && currentIndex > 0) {
-      setCurrentIndex((prevIndex) => prevIndex - 1);
-    }
-  }
+  // function prevIndex() {
+  //   if (allQuestions !== null && currentIndex > 0) {
+  //     setCurrentIndex((prevIndex) => prevIndex - 1);
+  //   }
+  // }
 
-  useEffect(() => {
-    if (allQuestions && allQuestions.length > 0) {
-      setCurrentIndex((prevIndex) =>
-        prevIndex >= allQuestions.length - 1 ? prevIndex : prevIndex + 1
-      );
-    }
-  }, [allQuestions]);
+  // useEffect(() => {
+  //   if (allQuestions && allQuestions.length > 0) {
+  //     setCurrentIndex((prevIndex) =>
+  //       prevIndex >= allQuestions.length - 1 ? prevIndex : prevIndex + 1
+  //     );
+  //   }
+  // }, [allQuestions]);
 
-  const isAtBeginning = currentIndex === 0;
-  const isAtEnd = allQuestions && currentIndex === allQuestions.length - 1;
+  // const isAtBeginning = currentIndex === 0;
+  // const isAtEnd = allQuestions && currentIndex === allQuestions.length - 1;
 
   return (
     <div className={CategoryInfoStyle.bgContainer}>
@@ -43,24 +45,27 @@ function CategoryInfoPage() {
         <BackArrow onClickUrl="/home" />
       </div>
       <div>
-        <img
-          src={arrowLeft}
-          onClick={prevIndex}
-          className={isAtBeginning ? CategoryInfoStyle.disabled : ""}
-          alt="Previous"
-        />
+        <Link
+          to={`/categoryinfo/${indexNum - 1}`}
+          className={indexNum === 0 ? CategoryInfoStyle.disabled : ""}
+        >
+          <img
+            src={arrowLeft}
+            alt="Previous"
+          />
+        </Link>
       </div>
       <div className={CategoryInfoStyle.playItemContainer}>
         {allQuestions && allQuestions.length > 0 ? (
           <div className={CategoryInfoStyle.imgContainer}>
             <CategoryItemCircle
-              question={allQuestions[currentIndex]}
+              question={allQuestions[indexNum]}
               width="300px"
               isClickable={false}
             />
-            <h1>{allQuestions[currentIndex].answer}</h1>
+            <h1>{allQuestions[indexNum].answer}</h1>
             <div className={CategoryInfoStyle.descriptionContainer}>
-              <p>{allQuestions[currentIndex].description}</p>
+              <p>{allQuestions[indexNum].description}</p>
             </div>
           </div>
         ) : (
@@ -68,12 +73,18 @@ function CategoryInfoPage() {
         )}
       </div>
       <div>
-        <img
-          src={arrowRight}
-          onClick={nextIndex}
-          className={isAtEnd ? CategoryInfoStyle.disabled : ""}
-          alt="Next"
-        />
+        {allQuestions && allQuestions.length > 0 ? (
+          <Link
+            to={`/categoryinfo/${indexNum + 1}`}
+            className={
+              indexNum === allQuestions.length - 1
+                ? CategoryInfoStyle.disabled
+                : ""
+            }
+          >
+            <img src={arrowRight} alt="Next" />
+          </Link>
+        ) : null}
       </div>
     </div>
   );

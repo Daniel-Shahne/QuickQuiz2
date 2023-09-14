@@ -44,3 +44,8 @@
   top: 2rem;
   left: 2rem;
 }
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.2;
+}
