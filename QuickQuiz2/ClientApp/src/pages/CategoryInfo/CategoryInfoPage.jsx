@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import arrowLeft from "./arrowLeft.png";
 import arrowRight from "./arrowRight.png";
 import { Link } from "react-router-dom";
+import NotFoundPage from '../NotFound/NotFoundPage'
 
 function CategoryInfoPage() {
   let { index } = useParams();
@@ -14,57 +15,64 @@ function CategoryInfoPage() {
 
   const { allQuestions } = useContext(AppContext);
 
+  
+  if (allQuestions && (indexNum < 0 || indexNum >= allQuestions.length)) {
 
-  return (
-    <div className={CategoryInfoStyle.bgContainer}>
-      <div className={CategoryInfoStyle.backarrow}>
-        <BackArrow onClickUrl="/home" />
-      </div>
-      <div>
-        <Link
-          to={`/categoryinfo/${indexNum - 1}`}
-          className={indexNum === 0 ? CategoryInfoStyle.disabled : ""}
-        >
-          <img
-          className={CategoryInfoStyle.arrowLeft}
-            src={arrowLeft}
-            alt="Previous"
-          />
-        </Link>
-      </div>
-      <div className={CategoryInfoStyle.playItemContainer}>
-        {allQuestions && allQuestions.length > 0 ? (
-          <div className={CategoryInfoStyle.imgContainer}>
-            <CategoryItemCircle 
-              question={allQuestions[indexNum]}
-              width="300px"
-              isClickable={false}
-            />
-            <h1>{allQuestions[indexNum].answer}</h1>
-            <div className={CategoryInfoStyle.descriptionContainer}>
-              <p>{allQuestions[indexNum].description}</p>
-            </div>
-          </div>
-        ) : (
-          <p>No questions available.</p>
-        )}
-      </div>
-      <div>
-        {allQuestions && allQuestions.length > 0 ? (
+      return (<NotFoundPage/>)
+  }
+  else {
+    return (
+
+      <div className={CategoryInfoStyle.bgContainer}>
+        <div className={CategoryInfoStyle.backarrow}>
+          <BackArrow onClickUrl="/home" />
+        </div>
+        <div>
           <Link
-            to={`/categoryinfo/${indexNum + 1}`}
-            className={
-              indexNum === allQuestions.length - 1
-                ? CategoryInfoStyle.disabled
-                : ""
-            }
+            to={`/categoryinfo/${indexNum - 1}`}
+            className={indexNum === 0 ? CategoryInfoStyle.disabled : ""}
           >
-            <img className={CategoryInfoStyle.arrowRight} src={arrowRight} alt="Next" />
+            <img
+            className={CategoryInfoStyle.arrowLeft}
+              src={arrowLeft}
+              alt="Previous"
+            />
           </Link>
-        ) : null}
+        </div>
+        <div className={CategoryInfoStyle.playItemContainer}>
+          {allQuestions && allQuestions.length > 0 ? (
+            <div className={CategoryInfoStyle.imgContainer}>
+              <CategoryItemCircle 
+                question={allQuestions[indexNum]}
+                width="300px"
+                isClickable={false}
+              />
+              <h1>{allQuestions[indexNum].answer}</h1>
+              <div className={CategoryInfoStyle.descriptionContainer}>
+                <p>{allQuestions[indexNum].description}</p>
+              </div>
+            </div>
+          ) : (
+            <p>No questions available.</p>
+          )}
+        </div>
+        <div>
+          {allQuestions && allQuestions.length > 0 ? (
+            <Link
+              to={`/categoryinfo/${indexNum + 1}`}
+              className={
+                indexNum === allQuestions.length - 1
+                  ? CategoryInfoStyle.disabled
+                  : ""
+              }
+            >
+              <img className={CategoryInfoStyle.arrowRight} src={arrowRight} alt="Next" />
+            </Link>
+          ) : null}
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default CategoryInfoPage;
