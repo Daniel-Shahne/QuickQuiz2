@@ -13,17 +13,19 @@ function SelectInfoPage() {
 
   return (
     <div className={selectInfoStyle.backgroundContainer}>
-      <h1 className={selectInfoStyle.textOverlayInfo}>
+      <h1
+        className={`${selectInfoStyle.textOverlayInfo} greenInnerWhiteOuterTextBuff`}
+      >
         Which animal would you like to learn about?
       </h1>
-      <span className={selectInfoStyle.backArrowSelectInfo}>
+      <span className={"backarrow"}>
         <BackArrow onClickUrl="/home" />
       </span>
       {allQuestions ? (
         <div className={selectInfoStyle.gridContainer}>
           {allQuestions.map((q, index) => (
-            <div className={selectInfoStyle.gridItem}>
-              <div className={selectInfoStyle.flexItem}>
+            <div className={selectInfoStyle.gridItem} key={index}>
+              <div className={selectInfoStyle.flexItem} key={index}>
                 <CategoryItemCircle
                   question={q}
                   width="280px"

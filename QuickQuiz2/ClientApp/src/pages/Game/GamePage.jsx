@@ -317,13 +317,13 @@ function GamePage() {
           <div id={gamePageStyle.darkPlayPageFlexContainer}>
             <div
               id={gamePageStyle.darkPlayPageText}
-              className={gamePageStyle.greenInnerWhiteOuterText}
+              className={`${gamePageStyle.playPageText} greenInnerWhiteOuterTextSkinny`}
             >
               Game is paused!
             </div>
             <div
               id={gamePageStyle.darkPlayPageExplanation}
-              className={gamePageStyle.greenInnerWhiteOuterText}
+              className={`${gamePageStyle.playPageText} greenInnerWhiteOuterTextSkinny`}
             >
               Press the button below to unpause
             </div>
@@ -372,7 +372,8 @@ function GamePage() {
               </span>
               <h2
                 id={gamePageStyle.player1}
-                className={`${gamePageStyle.greenInnerWhiteOuterText} ${
+                
+                className={`${"greenInnerWhiteOuterText"} ${
                   isPlayer1Shaking ? gamePageStyle.shake : ""
                 }`}
               >
@@ -380,9 +381,11 @@ function GamePage() {
               </h2>
               <h2
                 id={gamePageStyle.player2}
-                className={`${gamePageStyle.greenInnerWhiteOuterText} ${
+
+                className={`${"greenInnerWhiteOuterTextSkinny"} ${
                   isPlayer2Shaking ? gamePageStyle.shake : ""
                 }`}
+
               >
                 Player 2 points: {playerPoints.player2Points}
               </h2>
@@ -397,7 +400,7 @@ function GamePage() {
                   ) : null}
                   {difficulty === "hard" ? (
                     <h4
-                      className={gamePageStyle.greenInnerWhiteOuterText}
+                      className={"greenInnerWhiteOuterTextSkinny"}
                       id={gamePageStyle.hardDiffDesc}
                       style={{ fontSize: "30px" }}
                     >
@@ -405,26 +408,26 @@ function GamePage() {
                     </h4>
                   ) : null}
                   <h2
-                    className={gamePageStyle.greenInnerWhiteOuterText}
+                    className={"greenInnerWhiteOuterTextSkinny"}
                     style={{ fontSize: "60px" }}
                   >
                     Which animal is this?
                   </h2>
                   {!gameIsPaused ? (
                     <h3
-                      className={gamePageStyle.greenInnerWhiteOuterText}
+                      className={"greenInnerWhiteOuterTextSkinny"}
                       style={{ fontSize: "50px" }}
                     >
                       {allQuestions[activeAnswerIndex].answer}
                     </h3>
                   ) : (
-                    <h3 className={gamePageStyle.greenInnerWhiteOuterText}>
+                    <h3 className={"greenInnerWhiteOuterTextSkinny"}>
                       Game is paused
                     </h3>
                   )}
                 </div>
               </div>
-              <span className={gamePageStyle.backarrow}>
+              <span className={"backarrow"}>
                 <BackArrow onClickUrl="/howtoplay" />
               </span>
               {!gameIsPaused ? (

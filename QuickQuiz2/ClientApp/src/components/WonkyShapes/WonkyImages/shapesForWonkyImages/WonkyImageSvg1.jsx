@@ -24,7 +24,7 @@ function WonkyImageSvg1({ sizeMultiplier, rotateDegree }) {
           <path
             d="M111 3L6 37.7691V128L111 78.495V3Z"
             stroke="white"
-            stroke-width="4"
+            strokeWidth="4"
           />
         </g>
         <defs>
@@ -35,9 +35,9 @@ function WonkyImageSvg1({ sizeMultiplier, rotateDegree }) {
             width="117"
             height="138.923"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feColorMatrix
               in="SourceAlpha"
               type="matrix"

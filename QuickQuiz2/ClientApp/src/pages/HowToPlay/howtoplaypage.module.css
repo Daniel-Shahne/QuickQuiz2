@@ -17,16 +17,11 @@
 
 .howToPlayInnerContainer > h1 {
   text-align: center;
-  text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white,
-    2px 2px 0 white, -3px -3px 0 white, 3px -3px 0 white, -3px 3px 0 white,
-    3px 3px 0 white;
   font-size: 60px;
-  color: #00ac87;
 }
 
 .imageContainer {
   position: relative;
-
 }
 
 .textOverlay {
@@ -52,10 +47,4 @@
 
 .wonkyShape {
   margin-bottom: 40px;
-
-}
-.backarrow{
-  position: absolute;
-  top: 2rem;
-  left: 2rem;
 }

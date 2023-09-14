@@ -8,14 +8,18 @@ import BackArrow from "../../components/BackArrow/BackArrow";
 function HowToPlayPage() {
   return (
     <div className={howToPlayStyle.howToPlayContainer}>
-      <div className={howToPlayStyle.backarrow}>
+
+      <div className={"backarrow"}>
+
         <BackArrow onClickUrl="/selectdifficulty" />
       </div>
 
       <div className={howToPlayStyle.howToPlayInnerContainer}>
-        <h1>How to play</h1>
+        
+        <h1 className="greenInnerWhiteOuterTextBuff">How to play</h1>
+
         <div className={howToPlayStyle.imageContainer}>
-          <img src={wonkyShape} alt="" />
+          <img src={wonkyShape} alt="Background for how to play description" />
           <div className={howToPlayStyle.textOverlay}>
             <p>
               An image or description of an animal will be displayed in the
@@ -25,6 +29,7 @@ function HowToPlayPage() {
             <p>Player 1 has key A </p>
             <p> Player 2 has key L</p>
             <p>
+              
               When the correct answer appears, press your key faster than your
               opponent to score a point!
             </p>

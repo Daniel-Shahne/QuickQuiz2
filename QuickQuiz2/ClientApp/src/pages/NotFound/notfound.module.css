@@ -1,52 +1,45 @@
 .notfoundcontainer {
-    display: flex;
-    align-items: center;
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    justify-content: center;
-    background-image: url('./gradient1.png');
-    background-repeat: no-repeat;
-    background-size: cover;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  background-image: url("./gradient1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .backarrow {
-    position: absolute;
-    top: 2rem;
-    left: 2rem;
-  }
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}
 .notFoundFlexContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
- 
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
-  .notFoundFlexContainer > h1{
-    font-size: 80px;
-    margin-top: -100px;
-    text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white,
-    2px 2px 0 white, -3px -3px 0 white, 3px -3px 0 white, -3px 3px 0 white,
-    3px 3px 0 white;
-  color: #00ac87;
-  }
+.notFoundFlexContainer > h1 {
+  font-size: 80px;
+  margin-top: -100px;
+}
 
-
-
-.imageContainer{
-    width: 400px;
-    height: 400px;
-    animation: rotate 5s linear infinite;
-    margin-top: 100px;
-    border: white solid 8px;
-    border-radius: 50%;
+.imageContainer {
+  width: 400px;
+  height: 400px;
+  animation: rotate 5s linear infinite;
+  margin-top: 100px;
+  border: white solid 8px;
+  border-radius: 50%;
 }
 
 @keyframes rotate {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
+  0% {
+    transform: rotate(0deg);
   }
+  100% {
+    transform: rotate(360deg);
+  }
+}
