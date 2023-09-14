@@ -12,23 +12,22 @@ function CategoryInfoPage() {
 
   const { allQuestions } = useContext(AppContext);
 
-  // Define a state variable to keep track of the current index
   const [currentIndex, setCurrentIndex] = useState(parseInt(index));
 
   function nextIndex() {
-    if (currentIndex < allQuestions.length - 1) {
+    if (allQuestions !== null && currentIndex < allQuestions.length - 1) {
       setCurrentIndex((prevIndex) => prevIndex + 1);
     }
   }
 
   function prevIndex() {
-    if (currentIndex > 0) {
+    if (allQuestions !== null && currentIndex > 0) {
       setCurrentIndex((prevIndex) => prevIndex - 1);
     }
   }
 
   useEffect(() => {
-    if (allQuestions) {
+    if (allQuestions && allQuestions.length > 0) {
       setCurrentIndex((prevIndex) =>
         prevIndex >= allQuestions.length - 1 ? prevIndex : prevIndex + 1
       );
@@ -36,7 +35,7 @@ function CategoryInfoPage() {
   }, [allQuestions]);
 
   const isAtBeginning = currentIndex === 0;
-  const isAtEnd = currentIndex === allQuestions.length - 1;
+  const isAtEnd = allQuestions && currentIndex === allQuestions.length - 1;
 
   return (
     <div className={CategoryInfoStyle.bgContainer}>
