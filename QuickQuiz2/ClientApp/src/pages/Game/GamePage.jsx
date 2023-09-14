@@ -344,13 +344,13 @@ function GamePage() {
               </span>
               <h2
                 id={gamePageStyle.player1}
-                className={gamePageStyle.greenInnerWhiteOuterText}
+                className={"greenInnerWhiteOuterTextSkinny"}
               >
                 Player 1 points: {playerPoints.player1Points}
               </h2>
               <h2
                 id={gamePageStyle.player2}
-                className={gamePageStyle.greenInnerWhiteOuterText}
+                className={"greenInnerWhiteOuterTextSkinny"}
               >
                 Player 2 points: {playerPoints.player2Points}
               </h2>
@@ -365,7 +365,7 @@ function GamePage() {
                   ) : null}
                   {difficulty === "hard" ? (
                     <h4
-                      className={gamePageStyle.greenInnerWhiteOuterText}
+                      className={"greenInnerWhiteOuterTextSkinny"}
                       id={gamePageStyle.hardDiffDesc}
                       style={{ fontSize: "30px" }}
                     >
@@ -373,20 +373,20 @@ function GamePage() {
                     </h4>
                   ) : null}
                   <h2
-                    className={gamePageStyle.greenInnerWhiteOuterText}
+                    className={"greenInnerWhiteOuterTextSkinny"}
                     style={{ fontSize: "60px" }}
                   >
                     Which animal is this?
                   </h2>
                   {!gameIsPaused ? (
                     <h3
-                      className={gamePageStyle.greenInnerWhiteOuterText}
+                      className={"greenInnerWhiteOuterTextSkinny"}
                       style={{ fontSize: "50px" }}
                     >
                       {allQuestions[activeAnswerIndex].answer}
                     </h3>
                   ) : (
-                    <h3 className={gamePageStyle.greenInnerWhiteOuterText}>
+                    <h3 className={"greenInnerWhiteOuterTextSkinny"}>
                       Game is paused
                     </h3>
                   )}
