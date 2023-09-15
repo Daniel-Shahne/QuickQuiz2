@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Sound from "react-sound";
 import musicStyle from "./music.module.css";
 
 function Music() {
-  const [playStatus, setPlayStatus] = useState(Sound.status.PLAYING);
+  const [playStatus, setPlayStatus] = useState(Sound.status.PAUSED);
   const [isMuted, setIsMuted] = useState(false);
 
   return (

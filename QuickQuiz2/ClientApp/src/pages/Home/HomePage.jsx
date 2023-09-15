@@ -51,44 +51,28 @@ function HomePage() {
             imageSizeMultiplier="1.1"
           />
         </div>
-        {hasPlayerClickedStart ? (
-          <div className={homePageStyle.btncontainer}>
-            <div className={homePageStyle.playbtn}>
-              <WonkyContainerText
-                onClickUrl="/selectdifficulty"
-                shapeId="1"
-                text="Play"
-                shapeFill="#853AC8"
-                sizeMultiplier="4"
-                fontSize="30px"
-              />
-            </div>
-            <div className={homePageStyle.learnbtn}>
-              <WonkyContainerText
-                onClickUrl="/selectinfo"
-                shapeId="2"
-                text="Learn"
-                shapeFill="#853AC8"
-                sizeMultiplier="4"
-                fontSize="30px"
-              />
-            </div>
-          </div>
-        ) : (
-          <div className={homePageStyle.btncontainer}>
+        <div className={homePageStyle.btncontainer}>
+          <div className={homePageStyle.playbtn}>
             <WonkyContainerText
-              onClickUrl=""
-              onClickFunc={() => {
-                sethasPlayerClickedStart(true);
-              }}
-              shapeId="2"
-              text="Start"
+              onClickUrl="/selectdifficulty"
+              shapeId="1"
+              text="Play"
               shapeFill="#853AC8"
               sizeMultiplier="4"
               fontSize="30px"
             />
           </div>
-        )}
+          <div className={homePageStyle.learnbtn}>
+            <WonkyContainerText
+              onClickUrl="/selectinfo"
+              shapeId="2"
+              text="Learn"
+              shapeFill="#853AC8"
+              sizeMultiplier="4"
+              fontSize="30px"
+            />
+          </div>
+        </div>
 
         <div className={homePageStyle.vovve}>
           <WonkyContainerImage
