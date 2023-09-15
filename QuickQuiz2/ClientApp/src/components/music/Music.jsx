@@ -3,12 +3,8 @@ import Sound from "react-sound";
 import musicStyle from "./music.module.css";
 
 function Music() {
-  const [playStatus, setPlayStatus] = useState(Sound.status.STOPPED);
+  const [playStatus, setPlayStatus] = useState(Sound.status.PLAYING);
   const [isMuted, setIsMuted] = useState(false);
-
-  useEffect(() => {
-    setPlayStatus(Sound.status.PLAYING);
-  }, []);
 
   return (
     <span className={musicStyle.musicImage}>
