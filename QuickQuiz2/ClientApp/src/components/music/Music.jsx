@@ -1,16 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Sound from "react-sound";
 import musicStyle from "./music.module.css";
 
 function Music() {
-  const [playStatus, setPlayStatus] = useState(Sound.status.PLAYING);
+  const [playStatus, setPlayStatus] = useState(Sound.status.STOPPED);
   const [isMuted, setIsMuted] = useState(false);
+
+  useEffect(() => {
+    setPlayStatus(Sound.status.PLAYING);
+  }, []);
 
   return (
     <span className={musicStyle.musicImage}>
       {playStatus === Sound.status.PLAYING ? (
         <span>
           <Sound
+            autoLoad={true}
             url="/sounds/backgroundmusic.mp3"
             playStatus={playStatus}
             loop={true}

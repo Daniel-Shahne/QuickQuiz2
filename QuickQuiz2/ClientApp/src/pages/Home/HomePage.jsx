@@ -1,5 +1,5 @@
 import React from "react";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AppContext } from "../../context/AppContext";
 import { Link } from "react-router-dom";
 import homePageStyle from "./homepage.module.css";
@@ -9,6 +9,7 @@ import WonkyContainerText from "../../components/WonkyShapes/WonkyTexts/WonkyCon
 
 function HomePage() {
   const { difficulty } = useContext(AppContext);
+  const [hasPlayerClickedStart, sethasPlayerClickedStart] = useState(false);
 
   return (
     <div className={homePageStyle.bgContainer}>
@@ -50,28 +51,45 @@ function HomePage() {
             imageSizeMultiplier="1.1"
           />
         </div>
-        <div className={homePageStyle.btncontainer}>
-          <div className={homePageStyle.playbtn}>
-            <WonkyContainerText
-              onClickUrl="/selectdifficulty"
-              shapeId="1"
-              text="Play"
-              shapeFill="#853AC8"
-              sizeMultiplier="4"
-              fontSize="30px"
-            />
+        {hasPlayerClickedStart ? (
+          <div className={homePageStyle.btncontainer}>
+            <div className={homePageStyle.playbtn}>
+              <WonkyContainerText
+                onClickUrl="/selectdifficulty"
+                shapeId="1"
+                text="Play"
+                shapeFill="#853AC8"
+                sizeMultiplier="4"
+                fontSize="30px"
+              />
+            </div>
+            <div className={homePageStyle.learnbtn}>
+              <WonkyContainerText
+                onClickUrl="/selectinfo"
+                shapeId="2"
+                text="Learn"
+                shapeFill="#853AC8"
+                sizeMultiplier="4"
+                fontSize="30px"
+              />
+            </div>
           </div>
-          <div className={homePageStyle.learnbtn}>
+        ) : (
+          <div className={homePageStyle.btncontainer}>
             <WonkyContainerText
-              onClickUrl="/selectinfo"
+              onClickUrl=""
+              onClickFunc={() => {
+                sethasPlayerClickedStart(true);
+              }}
               shapeId="2"
-              text="Learn"
+              text="Start"
               shapeFill="#853AC8"
               sizeMultiplier="4"
               fontSize="30px"
             />
           </div>
-        </div>
+        )}
+
         <div className={homePageStyle.vovve}>
           <WonkyContainerImage
             question={{ imagePath: "donkey.png" }}
