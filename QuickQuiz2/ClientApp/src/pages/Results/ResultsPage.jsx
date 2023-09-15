@@ -6,16 +6,27 @@ import resultwonky2 from "./resultwonky2.png";
 import WonkyContainerText from "../../components/WonkyShapes/WonkyTexts/WonkyContainerText/WonkyContainerText";
 import { useLocation, useNavigate } from "react-router-dom";
 import NotFoundPage from "../NotFound/NotFoundPage";
+import goldmedal from "./goldmedal2.png";
+import silvermedal from "./silvermedal2.png";
+import bronzemedal from "./bronzemedal2.png";
 
 function ResultsPage() {
   const { state } = useLocation();
   const navigator = useNavigate();
 
-  // useLayoutEffect(() => {
-  //   if (state === null) {
-  //     navigator("/notfound");
-  //   }
-  // }, [state]);
+  let player1Medal =
+    state.player1Points >= 2
+      ? goldmedal
+      : state.player1Points >= 1
+      ? silvermedal
+      : bronzemedal;
+
+  let player2Medal =
+    state.player2Points >= 2
+      ? goldmedal
+      : state.player2Points >= 1
+      ? silvermedal
+      : bronzemedal;
 
   return (
     <div>
@@ -32,7 +43,11 @@ function ResultsPage() {
                 <h2 className="greenInnerWhiteOuterTextSkinny">
                   Score: {state.player1Points}
                 </h2>
-                {/* <h2>Score: 6</h2> */}
+                <img
+                  className={resultsPageStyle.medal}
+                  src={player1Medal}
+                  alt="Player reward medal"
+                />
               </div>
               <img
                 className={resultsPageStyle.resultsPageImage}
@@ -46,7 +61,11 @@ function ResultsPage() {
                 <h2 className="greenInnerWhiteOuterTextSkinny">
                   Score: {state.player2Points}
                 </h2>
-                {/* <h2>Score: 4</h2> */}
+                <img
+                  className={resultsPageStyle.medal}
+                  src={player2Medal}
+                  alt="Player reward medal"
+                />
               </div>
               <img
                 className={resultsPageStyle.resultsPageImage}
