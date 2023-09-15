@@ -6,6 +6,7 @@ import homePageStyle from "./homepage.module.css";
 import wonkyHeadingShape from "./wonky-heading-shape.png";
 import WonkyContainerImage from "../../components/WonkyShapes/WonkyImages/WonkyContainerImage/WonkyContainerImage";
 import WonkyContainerText from "../../components/WonkyShapes/WonkyTexts/WonkyContainerText/WonkyContainerText";
+
 function HomePage() {
   const { difficulty } = useContext(AppContext);
 
