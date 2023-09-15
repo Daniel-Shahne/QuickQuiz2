@@ -372,7 +372,7 @@ function GamePage() {
               </span>
               <h2
                 id={gamePageStyle.player1}
-                className={`${"greenInnerWhiteOuterTextSkinny"} ${
+                className={`${"greenInnerWhiteOuterText"} ${
                   isPlayer1Shaking ? gamePageStyle.shake : ""
                 }`}
               >
