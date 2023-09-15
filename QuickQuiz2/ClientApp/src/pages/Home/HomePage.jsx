@@ -1,13 +1,15 @@
 import React from "react";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AppContext } from "../../context/AppContext";
 import { Link } from "react-router-dom";
 import homePageStyle from "./homepage.module.css";
 import wonkyHeadingShape from "./wonky-heading-shape.png";
 import WonkyContainerImage from "../../components/WonkyShapes/WonkyImages/WonkyContainerImage/WonkyContainerImage";
 import WonkyContainerText from "../../components/WonkyShapes/WonkyTexts/WonkyContainerText/WonkyContainerText";
+
 function HomePage() {
   const { difficulty } = useContext(AppContext);
+  const [hasPlayerClickedStart, sethasPlayerClickedStart] = useState(false);
 
   return (
     <div className={homePageStyle.bgContainer}>
@@ -71,6 +73,7 @@ function HomePage() {
             />
           </div>
         </div>
+
         <div className={homePageStyle.vovve}>
           <WonkyContainerImage
             question={{ imagePath: "donkey.png" }}
