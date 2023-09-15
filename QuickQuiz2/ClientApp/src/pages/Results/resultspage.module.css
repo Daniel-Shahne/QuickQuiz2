@@ -84,3 +84,7 @@
   display: flex;
   justify-content: center;
 }
+
+.medal {
+  width: 50%;
+}

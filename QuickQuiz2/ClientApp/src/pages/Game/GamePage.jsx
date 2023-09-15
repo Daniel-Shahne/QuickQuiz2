@@ -18,7 +18,7 @@ function GamePage() {
   const timeoutOnWrongAnswer = 3000;
   const randomCyclesUpperLimit = 8;
   const timeForEachAnswer = 1000;
-  const questionLimit = 5;
+  const questionLimit = 2;
   const buttonEnabledFill = "#853AC8";
   const buttonDisabledFill = "#ED3309";
   const buttonRightAnswer = "#00AC87";
@@ -372,7 +372,6 @@ function GamePage() {
               </span>
               <h2
                 id={gamePageStyle.player1}
-                
                 className={`${"greenInnerWhiteOuterText"} ${
                   isPlayer1Shaking ? gamePageStyle.shake : ""
                 }`}
@@ -381,11 +380,9 @@ function GamePage() {
               </h2>
               <h2
                 id={gamePageStyle.player2}
-
                 className={`${"greenInnerWhiteOuterTextSkinny"} ${
                   isPlayer2Shaking ? gamePageStyle.shake : ""
                 }`}
-
               >
                 Player 2 points: {playerPoints.player2Points}
               </h2>
