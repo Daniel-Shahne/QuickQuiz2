@@ -6,9 +6,9 @@ import resultwonky2 from "./resultwonky2.png";
 import WonkyContainerText from "../../components/WonkyShapes/WonkyTexts/WonkyContainerText/WonkyContainerText";
 import { useLocation, useNavigate } from "react-router-dom";
 import NotFoundPage from "../NotFound/NotFoundPage";
-import goldmedal from "./goldmedal.png";
-import silvermedal from "./silvermedal.png";
-import bronzemedal from "./bronzemedal.png";
+import goldmedal from "./goldmedal2.png";
+import silvermedal from "./silvermedal2.png";
+import bronzemedal from "./bronzemedal2.png";
 
 function ResultsPage() {
   const { state } = useLocation();
