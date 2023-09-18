@@ -5,6 +5,13 @@
   background-image: url("./gradient1.png");
   background-repeat: no-repeat;
   background-size: cover;
+
+}
+
+.scrollContainer {
+  height: 80%;
+  width: 100%;
+  position: absolute;
   overflow-y: scroll;
 }
 
