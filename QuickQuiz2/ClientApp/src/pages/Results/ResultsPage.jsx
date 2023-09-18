@@ -15,18 +15,22 @@ function ResultsPage() {
   const navigator = useNavigate();
 
   let player1Medal =
-    state.player1Points >= 2
-      ? goldmedal
-      : state.player1Points >= 1
-      ? silvermedal
-      : bronzemedal;
+    state && state.player1Points !== undefined
+      ? state.player1Points >= 2
+        ? goldmedal
+        : state.player1Points >= 1
+        ? silvermedal
+        : bronzemedal
+      : null;
 
   let player2Medal =
-    state.player2Points >= 2
-      ? goldmedal
-      : state.player2Points >= 1
-      ? silvermedal
-      : bronzemedal;
+    state && state.player2Points !== undefined
+      ? state.player2Points >= 2
+        ? goldmedal
+        : state.player2Points >= 1
+        ? silvermedal
+        : bronzemedal
+      : null;
 
   return (
     <div>
