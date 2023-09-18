@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import WonkyContainerText from "../../components/WonkyShapes/WonkyTexts/WonkyContainerText/WonkyContainerText";
 import difficultyStyle from "./SelectDifficultyPage.module.css";
 import { AppContext } from "../../context/AppContext";

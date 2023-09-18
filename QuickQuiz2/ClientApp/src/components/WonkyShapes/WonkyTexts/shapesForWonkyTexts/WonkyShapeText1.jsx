@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import wonkyShapeStyle from "./wonkyshape.module.css";
 
@@ -16,10 +16,6 @@ function WonkyShapeText1({
   const [calculatedHeight, setCalculatedHeight] = useState(
     57 * sizeMultiplierNum
   );
-
-  function handleClick() {
-    console.log("clicked!");
-  }
 
   return (
     <span>

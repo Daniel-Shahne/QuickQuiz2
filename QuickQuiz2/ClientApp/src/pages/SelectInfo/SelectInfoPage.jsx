@@ -22,6 +22,7 @@ function SelectInfoPage() {
         <BackArrow onClickUrl="/home" />
       </span>
       {allQuestions ? (
+         <div className={selectInfoStyle.scrollContainer}>
         <div className={selectInfoStyle.gridContainer}>
           {allQuestions.map((q, index) => (
             <div className={selectInfoStyle.gridItem} key={index}>
@@ -36,9 +37,11 @@ function SelectInfoPage() {
               </div>
             </div>
           ))}
+           </div>
         </div>
       ) : null}
-    </div>
+      </div>
+   
   );
 }
 

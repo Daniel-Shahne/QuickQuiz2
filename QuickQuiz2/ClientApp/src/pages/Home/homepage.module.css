@@ -76,9 +76,6 @@
   font-weight: bold;
 }
 
-.slothContainer {
-  /* margin-top: 30px; */
-}
 
 .quokkaContainer {
   position: relative;
@@ -87,7 +84,6 @@
 }
 
 .orangutanContainer {
-  /* grid-column-end: span 2; */
   position: relative;
   top: 50px;
   right: -80px;

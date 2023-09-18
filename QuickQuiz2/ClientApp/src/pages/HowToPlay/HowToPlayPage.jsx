@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import howToPlayStyle from "./howtoplaypage.module.css";
 import wonkyShape from "./howtoplay-wonkycontainer.png";
 import WonkyContainerText from "../../components/WonkyShapes/WonkyTexts/WonkyContainerText/WonkyContainerText";
