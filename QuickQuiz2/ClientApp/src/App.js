@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Route, Routes } from "react-router-dom";
 import "./custom.css";
-import { apiHelper } from "./services/ApiHelper";
 import { AppContextProvider } from "./context/AppContext";
 import HomePage from "./pages/Home/HomePage";
 import GamePage from "./pages/Game/GamePage";

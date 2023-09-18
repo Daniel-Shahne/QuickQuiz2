@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 function WonkyImageSvg1({ sizeMultiplier, rotateDegree }) {
   let sizeMultiplierNum = parseFloat(sizeMultiplier);

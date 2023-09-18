@@ -1,10 +1,10 @@
-import React, { useEffect, useLayoutEffect } from "react";
+import React from "react";
 import BackArrow from "../../components/BackArrow/BackArrow";
 import resultsPageStyle from "./resultspage.module.css";
 import resultwonky1 from "./resultwonky1.png";
 import resultwonky2 from "./resultwonky2.png";
 import WonkyContainerText from "../../components/WonkyShapes/WonkyTexts/WonkyContainerText/WonkyContainerText";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import NotFoundPage from "../NotFound/NotFoundPage";
 import goldmedal from "./goldmedal2.png";
 import silvermedal from "./silvermedal2.png";
@@ -12,7 +12,7 @@ import bronzemedal from "./bronzemedal2.png";
 
 function ResultsPage() {
   const { state } = useLocation();
-  const navigator = useNavigate();
+
 
   let player1Medal =
     state && state.player1Points !== undefined

@@ -1,5 +1,5 @@
 import CategoryInfoStyle from "./categoryinfopage.module.css";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import BackArrow from "../../components/BackArrow/BackArrow";
 import CategoryItemCircle from "../../components/circles/CategoryItemCircle";
 import { AppContext } from "../../context/AppContext";
