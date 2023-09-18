@@ -23,7 +23,6 @@
 
 .imgContainer {
   display: flex;
-  /* transform: translate(0%, 50%); */
   justify-content: center;
   flex-direction: column;
   align-items: center;

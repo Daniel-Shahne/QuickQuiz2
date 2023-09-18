@@ -1,7 +1,8 @@
 .musicImage {
-  position: absolute;
+  position:absolute;
   top: 2rem;
   left: 8rem;
+
 }
 
 .musicImage:hover {

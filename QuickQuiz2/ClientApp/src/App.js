@@ -27,8 +27,8 @@ function App() {
           <Route path="/selectinfo" element={<SelectInfoPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
-        <Music />
       </AppContextProvider>
+      <Music />
     </div>
   );
 }
