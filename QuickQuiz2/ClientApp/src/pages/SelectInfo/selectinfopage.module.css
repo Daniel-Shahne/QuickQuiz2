@@ -5,7 +5,6 @@
   background-image: url("./gradient1.png");
   background-repeat: no-repeat;
   background-size: cover;
-
 }
 
 .scrollContainer {
@@ -20,7 +19,6 @@
   grid-template-columns: repeat(5, 1fr);
   grid-auto-rows: 320px;
   gap: 10px;
-  
 }
 
 .gridItem {
@@ -38,4 +36,20 @@
   text-align: center;
   font-size: 70px;
   margin: 40px;
+}
+
+/* Style for the vertical scrollbar */
+.scrollContainer::-webkit-scrollbar {
+  width: 20px; /* Set the width of the scrollbar */
+}
+
+.scrollContainer::-webkit-scrollbar-thumb {
+  background-color: #00ac87; /* Set the color of the thumb (the draggable part) */
+  border-radius: 10px; /* Round the corners of the thumb */
+  border: solid 3px white;
+}
+
+.scrollContainer::-webkit-scrollbar-track {
+  background-color: #cccccc00; /* Set the color of the track (the non-draggable part) */
+  width: 100px;
 }
