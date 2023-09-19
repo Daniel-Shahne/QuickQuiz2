@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 import arrowLeft from "./arrowLeft.png";
 import arrowRight from "./arrowRight.png";
 import { Link } from "react-router-dom";
-import NotFoundPage from '../NotFound/NotFoundPage'
+import NotFoundPage from "../NotFound/NotFoundPage";
 
 function CategoryInfoPage() {
   let { index } = useParams();
@@ -15,17 +15,13 @@ function CategoryInfoPage() {
 
   const { allQuestions } = useContext(AppContext);
 
-  
   if (allQuestions && (indexNum < 0 || indexNum >= allQuestions.length)) {
-
-      return (<NotFoundPage/>)
-  }
-  else {
+    return <NotFoundPage />;
+  } else {
     return (
-
       <div className={CategoryInfoStyle.bgContainer}>
         <div className={CategoryInfoStyle.backarrow}>
-          <BackArrow onClickUrl="/home" />
+          <BackArrow onClickUrl="/selectinfo" />
         </div>
         <div>
           <Link
@@ -33,7 +29,7 @@ function CategoryInfoPage() {
             className={indexNum === 0 ? CategoryInfoStyle.disabled : ""}
           >
             <img
-            className={CategoryInfoStyle.arrowLeft}
+              className={CategoryInfoStyle.arrowLeft}
               src={arrowLeft}
               alt="Previous"
             />
@@ -42,7 +38,7 @@ function CategoryInfoPage() {
         <div className={CategoryInfoStyle.playItemContainer}>
           {allQuestions && allQuestions.length > 0 ? (
             <div className={CategoryInfoStyle.imgContainer}>
-              <CategoryItemCircle 
+              <CategoryItemCircle
                 question={allQuestions[indexNum]}
                 width="300px"
                 isClickable={false}
@@ -66,7 +62,11 @@ function CategoryInfoPage() {
                   : ""
               }
             >
-              <img className={CategoryInfoStyle.arrowRight} src={arrowRight} alt="Next" />
+              <img
+                className={CategoryInfoStyle.arrowRight}
+                src={arrowRight}
+                alt="Next"
+              />
             </Link>
           ) : null}
         </div>
